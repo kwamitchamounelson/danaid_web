@@ -1,0 +1,150 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
+// Angular Material
+import { MatCheckboxModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material';
+import { MatInputModule } from '@angular/material/input';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { DashboardComponent } from './components/Administration/dashboard/dashboard.component';
+import { UsersProfilesComponent } from './components/Administration/users-profiles/users-profiles.component';
+import { FooterComponent } from './static-elements/footer/footer.component';
+import { NavBarComponent } from './static-elements/nav-bar/nav-bar.component';
+import { AdherentComponent } from './components/Administration/adherent/adherent.component';
+import { FacturationComponent } from './components/Administration/facturation/facturation.component';
+import { ProfilUpdatedComponent } from './components/Administration/profil-updated/profil-updated.component';
+import { AjoutPersonneChargeComponent } from './components/Administration/ajout-personne-charge/ajout-personne-charge.component';
+import { ChooseUpdateMdfComponent } from './components/Administration/choose-update-mdf/choose-update-mdf.component';
+import { DemandeServiceComponent } from './components/Administration/demande-service/demande-service.component';
+import { ChangeBackgroundComponent } from './static-elements/change-background/change-background.component';
+import { MainComponent } from './components/Administration/main/main.component';
+
+// add angular module
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+// import { AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { SignInUserComponent } from './components/Authentification/sign-in-user/sign-in-user.component';
+import { ValidateCodeComponent } from './components/Administration/validate-code/validate-code.component';
+import { ValidateDocumentComponent } from './components/Administration/validate-document/validate-document.component';
+import { AuthGuardComponent } from './components/Authentification/auth-guard/auth-guard.component';
+
+// 2. Add your credentials from step 1
+const config = {
+  apiKey: 'AIzaSyCDuAOSaTTSA7qbfn1MqpVHr9GoFsci1Ts',
+  authDomain: 'danaidapp.firebaseapp.com',
+  databaseURL: 'https://danaidapp.firebaseio.com',
+  projectId: 'danaidapp',
+  storageBucket: 'danaidapp.appspot.com',
+  messagingSenderId: '907608334806',
+  appId: '1:907608334806:web:562737e087aab291458477'
+};
+
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    DashboardComponent,
+    UsersProfilesComponent,
+    FooterComponent,
+    NavBarComponent,
+    AdherentComponent,
+    FacturationComponent,
+    ProfilUpdatedComponent,
+    AjoutPersonneChargeComponent,
+    ChooseUpdateMdfComponent,
+    DemandeServiceComponent,
+    ChangeBackgroundComponent,
+    MainComponent,
+    SignInUserComponent,
+    ValidateCodeComponent,
+    ValidateDocumentComponent,
+    AuthGuardComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MDBBootstrapModule.forRoot(),
+
+    // Initialize firebase
+    AngularFireModule.initializeApp(config),
+    AngularFirestoreModule, // firestore
+    // AngularFirestoreCollection, // firestoreCollection
+    AngularFireAuthModule, // auth
+    AngularFireStorageModule, // storage
+
+
+    MatCheckboxModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatStepperModule,
+    MatTabsModule,
+    MatExpansionModule,
+    MatButtonToggleModule,
+    MatChipsModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
+    MatDialogModule,
+    MatTooltipModule,
+    MatSnackBarModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

@@ -1,0 +1,68 @@
+<section class="main">
+  <div class="layer">
+    <div class="bottom-grid">
+      <div class="logo">
+        <h1> <a href="#">Administration Danaid</a></h1>
+      </div>
+      <div class="links">
+        <ul class="links-unordered-list">
+          <li class="">
+            <a href="JavaScript:Void(0)" (click)="personalizeUI(1)"><span class="{{setActiveStatu(1)}}">Se connecter</span></a>
+          </li>
+          <li class="">
+            <a href="JavaScript:Void(0)" (click)="personalizeUI(2)"><span class="{{setActiveStatu(2)}}">Créer un compte</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="content-w3ls">
+      <div class="text-center icon">
+        <p *ngIf="invalideAuthentification" class="errorAuth">Echec d'Authentification</p>
+      </div>
+      <div class="content-bottom">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+          <div class="field-group">
+            <div class="wthree-field">
+              <input id="email" type="text" placeholder="email" formControlName="email">
+            </div>
+          </div>
+          <div class="field-group">
+            <div class="wthree-field">
+              <input id="password" type="Password" placeholder="Password" formControlName="password">
+            </div>
+          </div>
+          <div class="wthree-field">
+            <button type="submit" class="btn">{{labelConnexion}}</button>
+          </div>
+          <ul class="list-login">
+            <li class="switch-agileits">
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                Se souvenir de moi
+              </label>
+            </li>
+            <li>
+              <a *ngIf="authStatu === 1" href="#" class="text-right">Mot de passe oublié?</a>
+            </li>
+            <li class="clearfix"></li>
+          </ul>
+          <ul class="list-login-bottom">
+            <li class="">
+              <a href="JavaScript:Void(0)" class="" (click)="inversedUI()">{{inverseLabel()}}</a>
+            </li>
+            <li class="">
+              <a href="#" class="text-right">Aide?</a>
+            </li>
+            <li class="clearfix"></li>
+          </ul>
+        </form>
+      </div>
+    </div>
+    <div class="bottom-grid1">
+      <div class="copyright">
+        <p>© 2019. Tout droit reservé | Par UNIVER-IT</p>
+      </div>
+    </div>
+  </div>
+</section>

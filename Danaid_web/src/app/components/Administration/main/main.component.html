@@ -1,0 +1,113 @@
+<div class="wrapper ">
+  <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-1.jpg">
+    <!--
+          Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+          Tip 2: you can also add an image using data-image tag
+      -->
+    <div class="logo">
+      <a href="" class="simple-text logo-normal">
+        {{titleMenu}}
+      </a>
+    </div>
+    <div class="sidebar-wrapper">
+      <ul class="nav">
+        <li class={{setStyle(1)}} (click)="loadData(1)">
+          <a class="nav-link" href="JavaScript:Void(0)">
+            <i class="material-icons">dashboard</i>
+            <p>Dashboard</p>
+          </a>
+        </li>
+        <li class={{setStyle(2)}} (click)="loadData(2)">
+          <a class="nav-link" href="JavaScript:Void(0)">
+            <i class="material-icons">account_circle</i>
+            <p>Utilisateurs</p>
+          </a>
+        </li>
+        <li class={{setStyle(3)}} (click)="loadData(3)">
+          <a class="nav-link" href="JavaScript:Void(0)">
+            <i class="material-icons">accessible_forward</i>
+            <p>Adherents</p>
+          </a>
+        </li>
+        <li class={{setStyle(4)}} (click)="loadData(4)">
+          <a class="nav-link" href="JavaScript:Void(0)">
+            <i class="material-icons">monetization_on</i>
+            <p>Facturations</p>
+          </a>
+        </li>
+        <li class={{setStyle(5)}} (click)="loadData(5)">
+          <a class="nav-link" href="JavaScript:Void(0)">
+            <i class="material-icons">transfer_within_a_station</i>
+            <p>Profils mis à Jour</p>
+          </a>
+        </li>
+        <li class={{setStyle(6)}} (click)="loadData(6)">
+          <a class="nav-link" href="JavaScript:Void(0)">
+            <i class="material-icons">people_alt</i>
+            <p>Ajouts de personnes à charge</p>
+          </a>
+        </li>
+        <li class={{setStyle(7)}} (click)="loadData(7)">
+          <a class="nav-link" href="JavaScript:Void(0)">
+            <i class="fa fa-user-md"></i>
+            <p>Choix ou modification du MDF</p>
+          </a>
+        </li>
+        <li class={{setStyle(8)}} (click)="loadData(8)">
+          <a class="nav-link" href="JavaScript:Void(0)">
+            <i class="material-icons">help</i>
+            <p>Demandes de service</p>
+          </a>
+        </li>
+        <li class={{setStyle(9)}} (click)="loadData(9)">
+          <a class="nav-link" href="JavaScript:Void(0)">
+            <i class="material-icons">done_outline</i>
+            <p>Validation de code</p>
+          </a>
+        </li>
+        <li class={{setStyle(10)}} (click)="loadData(10)">
+          <a class="nav-link" href="JavaScript:Void(0)">
+            <i class="material-icons">assignment_turned_in</i>
+            <p>Validation de documents</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="main-panel">
+
+    <!-- Navbar -->
+    <app-nav-bar></app-nav-bar>
+    <!-- End Navbar -->
+
+
+    <div class="content">
+      <!-- chargement des contenues -->
+      <div [ngSwitch]=num>
+        <app-dashboard *ngSwitchCase=1></app-dashboard>
+        <app-users-profiles *ngSwitchCase=2></app-users-profiles>
+        <app-adherent *ngSwitchCase=3></app-adherent>
+        <app-facturation *ngSwitchCase=4></app-facturation>
+        <app-profil-updated *ngSwitchCase=5></app-profil-updated>
+        <app-ajout-personne-charge *ngSwitchCase=6></app-ajout-personne-charge>
+        <app-choose-update-mdf *ngSwitchCase=7></app-choose-update-mdf>
+        <app-demande-service *ngSwitchCase=8></app-demande-service>
+        <app-validate-code *ngSwitchCase=9></app-validate-code>
+        <app-validate-document *ngSwitchCase=10></app-validate-document>
+        <app-adherent *ngSwitchDefault></app-adherent>
+      </div>
+      <!-- chargement des contenues -->
+    </div>
+
+
+    <!--footer-->
+    <app-footer></app-footer>
+    <!--footer-->
+
+  </div>
+</div>
+
+<!--configuration de l'arriere plan-->
+<app-change-background></app-change-background>
+<!--configuration de l'arriere plan-->
