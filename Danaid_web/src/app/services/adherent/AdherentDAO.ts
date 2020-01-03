@@ -1,24 +1,24 @@
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Constant } from '../Constant';
 import { Adherent } from 'src/app/entities/adherent.model';
 import { Injectable } from '@angular/core';
+import { FirestoreService } from '../firestore-util/firestore.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdherentDAO {
   constructor(
-    private firestore: AngularFirestore,
+    private firestoreService: FirestoreService
     // private adherentRef: AngularFirestoreCollection<Adherent>
   ) {
     // this.adherentRef = this.firestore.collection<Adherent>(Constant.ADHERENTS);
   }
   getAdherentsDocuments() {
-    return this.firestore.collection(Constant.ADHERENTS).snapshotChanges();
+    return this.firestoreService.getEntitiesDocuments(Constant.ADHERENTS);
   }
 
   addAdherentDocument(adherent: Adherent) {
-    return this.firestore.collection(Constant.ADHERENTS).add(adherent);
+    return this.firestoreService.addEntityDocument(Constant.ADHERENTS, adherent);
     // return this.adherentRef.add(adherent);
     // return this.firestore.collection(Constant.ADHERENTS).doc('' + adherent.phoneList[0].number).set(adherent);
   }
@@ -27,10 +27,10 @@ export class AdherentDAO {
     const phoneNumber = adherent.phoneList[0].number;
     console.log('telephone : ' + phoneNumber);
     // delete adherent.phoneList[0].number;
-    return this.firestore.doc(Constant.ADHERENTS + '/' + phoneNumber).update(adherent);
+    return this.firestoreService.updateEntityDocument(Constant.ADHERENTS, adherent, '' + phoneNumber);
   }
 
   deleteAdherentDocument(adherentPhoneNumber: string) {
-    return this.firestore.doc(Constant.ADHERENTS + '/' + adherentPhoneNumber).delete();
+    return this.firestoreService.deleteEntityDocument(Constant.ADHERENTS, adherentPhoneNumber);
   }
 }
