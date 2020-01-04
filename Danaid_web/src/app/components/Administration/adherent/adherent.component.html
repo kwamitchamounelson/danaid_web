@@ -33,39 +33,41 @@
                 <th>Nom</th>
                 <th>Commune</th>
                 <th>Adresse</th>
-                <th>Status</th>
+                <th>Telephone principal</th>
                 <th>Operations</th>
               </thead>
               <tbody>
                 <tr *ngFor="let adherent of adherentList;let index = index;">
                   <td>{{index + 1}}</td>
-                  <td>{{adherent.fullName}}</td>
-                  <td>{{adherent.commune}}</td>
-                  <td>{{adherent.adresse}}</td>
                   <td>
-                    <p *ngIf="adherent.profilEnabled" class="">Actif</p>
-                    <p *ngIf="!adherent.profilEnabled" class="">Inactif</p>
+                    <div>
+                      <img src="{{adherent.imageUrl}}" class="rounded float-left profile-image mr-2" alt="">
+                      <p>{{adherent.nomFamille}}</p>
+                    </div>
                   </td>
+                  <td>{{adherent.ville}}</td>
+                  <td>{{adherent.adresse}}</td>
+                  <td>{{adherent.phoneList[0].number}}</td>
                   <td class="row">
 
                     <!--TO ENABLE ADHERENT-->
                     <a class="col-2" href="JavaScript:Void(0)" *ngIf="!adherent.profilEnabled"
                       (click)="enableOrdisacleAdherent(adherent,1)">
-                      <i class="fas fa-check-circle icone" title="activer {{adherent.fullName}}"></i>
+                      <i class="fas fa-user-alt-slash icone" title="activer {{adherent.nomFamille}}"></i>
                     </a>
                     <!--TO ENABLE ADHERENT-->
 
                     <!--TO DESABLE ADHERENT-->
                     <a class="col-2" href="JavaScript:Void(0)" *ngIf="adherent.profilEnabled"
                       (click)="enableOrdisacleAdherent(adherent,2)">
-                      <i class="fas fa-user-alt-slash icone" title="désactiver {{adherent.fullName}}"></i>
+                      <i class="fas fa-check-circle icone" title="désactiver {{adherent.nomFamille}}"></i>
                     </a>
                     <!--TO DESABLE ADHERENT-->
 
 
                     <!--TO DELETE ADHERENT-->
                     <a class="col-2" href="JavaScript:Void(0)" data-toggle="modal" data-target="#modalConfirmDelete">
-                      <i class="fas fa-trash-alt icone" title="supprimer {{adherent.fullName}}"></i>
+                      <i class="fas fa-trash-alt icone" title="supprimer {{adherent.nomFamille}}"></i>
                     </a>
                     <!--Modal: modalConfirmDelete-->
                     <div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog"

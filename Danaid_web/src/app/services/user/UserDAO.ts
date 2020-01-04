@@ -3,7 +3,9 @@ import { FirestoreService } from '../firestore-util/firestore.service';
 import { Constant } from '../Constant';
 import { User } from 'src/app/entities/user.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class UserDAO {
   constructor(
     private firestoreService: FirestoreService

@@ -1,4 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.icone-head {
+  color: white;
+  font-size: 40px;
+}
+.icone-head:hover {
+  color: yellow;
+  font-size: 50px;
+}
+.red {
+  color: red;
+}
+.green {
+  color: green;
+}
+.icone:hover {
+  color: black;
+  font-size: 20px;
+}
+.profile-image {
+  width: 35px;
+  height: 35px;
+}

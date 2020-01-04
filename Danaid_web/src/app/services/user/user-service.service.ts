@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserDAO } from './UserDAO';
+import { User } from "src/app/entities/user.model";
 import { UserInterface } from './UserInterface';
-import { User } from 'firebase';
 
 @Injectable({
   providedIn: 'root'

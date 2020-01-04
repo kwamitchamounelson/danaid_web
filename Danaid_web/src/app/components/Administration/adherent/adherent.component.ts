@@ -72,11 +72,9 @@ export class AdherentComponent implements OnInit {
     const ran = Math.random() * 10000;
     const aderent = new Adherent();
     aderent.adresse = 'adress' + ran;
-    aderent.commune = 'commune' + ran;
     aderent.createdDate = new Date(Date.now());
     aderent.dateNaissance = new Date(Date.now());
     aderent.emailAdresse = 'email' + ran;
-    aderent.fullName = 'name' + ran;
     aderent.imageUrl = 'imageURL' + ran;
     aderent.isRecptionPaiementMobile = true;
     aderent.nombreEnfant = 0;
