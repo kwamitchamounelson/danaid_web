@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { User } from 'src/app/entities/user.model';
 import { UserServiceService } from 'src/app/services/user/user-service.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ModalService } from 'src/app/services/modal-service/modal.service';
+import { ModalDirective } from 'angular-bootstrap-md';
 
 @Component({
   selector: 'app-users-profiles',
@@ -10,9 +12,14 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class UsersProfilesComponent implements OnInit {
 
+  @ViewChild('basicModal', { static: false }) basicModal: ModalDirective;
+  currenUser: User
   defaulProfilePicture = 'https://firebasestorage.googleapis.com/v0/b/danaidapp.appspot.com/o/user-profil.png?alt=media&token=10fc4c1d-7f22-48b8-897d-e5a973721628'
   userList: User[] = [];
-  constructor(private userService: UserServiceService) { }
+  constructor(
+    private userService: UserServiceService,
+    private modalService: ModalService
+  ) { }
   validatingForm: FormGroup;
   ngOnInit() {
     this.validatingForm = new FormGroup({
@@ -67,4 +74,14 @@ export class UsersProfilesComponent implements OnInit {
   deleteUser(user: User) {
     this.userService.deleteUser('' + user.phoneList[0].number);
   }
+
+  // affichage des detail du user
+  openModal(user: User) {
+    this.currenUser = user;
+    this.basicModal.show();
+  }
+
+  closeModal() {
+    this.basicModal.hide();
+  } 
 }

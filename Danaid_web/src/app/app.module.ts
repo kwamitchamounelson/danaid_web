@@ -40,7 +40,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { DashboardComponent } from './components/Administration/dashboard/dashboard.component';
-import { UsersProfilesComponent } from './components/Administration/users-profiles/users-profiles.component';
+import { UsersProfilesComponent } from './components/Administration/user/users-profiles/users-profiles.component';
 import { FooterComponent } from './static-elements/footer/footer.component';
 import { NavBarComponent } from './static-elements/nav-bar/nav-bar.component';
 import { AdherentComponent } from './components/Administration/adherent/adherent.component';
@@ -62,6 +62,8 @@ import { SignInUserComponent } from './components/Authentification/sign-in-user/
 import { ValidateCodeComponent } from './components/Administration/validate-code/validate-code.component';
 import { ValidateDocumentComponent } from './components/Administration/validate-document/validate-document.component';
 import { AuthGuardComponent } from './components/Authentification/auth-guard/auth-guard.component';
+import { UserDetailComponent } from './components/Administration/user/user-detail/user-detail.component';
+import { ModalComponent } from './components/Administration/user/modal/modal.component';
 
 // 2. Add your credentials from step 1
 const config = {
@@ -93,7 +95,9 @@ const config = {
     SignInUserComponent,
     ValidateCodeComponent,
     ValidateDocumentComponent,
-    AuthGuardComponent
+    AuthGuardComponent,
+    UserDetailComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
