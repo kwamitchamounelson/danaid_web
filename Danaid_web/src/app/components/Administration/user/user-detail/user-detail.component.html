@@ -1,19 +1,71 @@
-<div mdbModal #basicModal="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
-    aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header text-center">
-                <h4 class="modal-title w-100 font-weight-bold">Detail</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="basicModal.hide()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body mx-3">
-                <p>{{user.fullName}}</p>
-            </div>
-            <div class="modal-footer d-flex justify-content-center">
-                <button mdbBtn color="default" class="waves-light" mdbWavesEffect>Close</button>
-            </div>
+<div class="modal-body mx-2">
+    <!--INFO USER MATRICULE-->
+    <div class="row mb-3">
+        <strong class="col-4">Matricule :</strong>
+        <div class="col-8">
+            <input type="text" id="defaultForm-email" readonly class="form-control" value="{{user.matricule}}" mdbInput>
         </div>
     </div>
+    <!--INFO USER MATRICULE-->
+
+    <!--INFO USER NAME-->
+    <div class="row mb-3">
+        <strong class="col-4">Noms et prénom :</strong>
+        <div class="col-8 row">
+            <input type="text" id="defaultForm-email" class="form-control col-11" value="{{user.fullName}}" mdbInput>
+            <mdb-icon fas icon="edit" class="blue-text col-1" (click)="updateUser('userName')"></mdb-icon>
+        </div>
+    </div>
+    <!--INFO USER NAME-->
+
+    <!--INFO USER PROFILE-->
+    <div class="row mb-3">
+        <strong class="col-4">Profile :</strong>
+        <div class="col-8 row">
+            <input type="text" id="defaultForm-email" class="form-control col-11" value="{{user.profil}}" mdbInput>
+            <mdb-icon fas icon="edit" class="blue-text col-1"></mdb-icon>
+        </div>
+    </div>
+    <!--INFO USER PROFILE-->
+
+    <!--INFO USER EMAIL-->
+    <div class="row mb-3">
+        <strong class="col-4">Email :</strong>
+        <div class="col-8 row">
+            <input type="text" id="defaultForm-email" class="form-control col-11" value="{{user.emailAdress}}" mdbInput>
+            <mdb-icon fas icon="edit" class="blue-text col-1" (click)="updateUser('email')"></mdb-icon>
+        </div>
+    </div>
+    <!--INFO USER EMAIL-->
+
+    <!--INFO USER REGION-->
+    <div class="row mb-3">
+        <strong class="col-4">Region :</strong>
+        <div class="col-8 row">
+            <input type="text" id="defaultForm-email" class="form-control col-11" value="{{user.regionDorigione}}"
+                mdbInput>
+            <mdb-icon fas icon="edit" class="blue-text col-1" (click)="updateUser('region')"></mdb-icon>
+        </div>
+    </div>
+    <!--INFO USER REGION-->
+
+    <!--INFO USER PHONE NUMBERS-->
+    <div class="row mb-3">
+        <strong class="col-4">Téléphone(s) :</strong>
+        <div class="col-8">
+            <mat-chip-list *ngFor="let phone of user.phoneList">
+                <mat-chip>{{phone.number}} ({{phone.operator}})</mat-chip>
+            </mat-chip-list>
+        </div>
+    </div>
+    <!--INFO USER PHONE NUMBERS-->
+
+    <!-- chargement des contenues -->
+    <div [ngSwitch]=user.profil>
+        <h3 class="text-center mx-3">Informations profil {{user.profil}}</h3>
+        <app-adherent-profile *ngSwitchCase=ADHERENT [user]=user></app-adherent-profile>
+        <app-sponsor-profile *ngSwitchCase=SPONSOR [user]=user></app-sponsor-profile>
+        <div *ngSwitchDefault></div>
+    </div>
+    <!-- chargement des contenues -->
 </div>

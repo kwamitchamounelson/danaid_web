@@ -5,4 +5,5 @@ export interface AdherentInterface {
   creatAdherent(adherent: Adherent);
   updateAdherent(adherent: Adherent);
   deleteAdherent(adherentPhoneNumber: string)
+  getAdherentByPhoneNumber(adherentPhoneNumber: string)
 }

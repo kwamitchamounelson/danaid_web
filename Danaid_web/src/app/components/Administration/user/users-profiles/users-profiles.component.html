@@ -175,52 +175,23 @@
 </div>
 
 
-<div mdbModal #basicModal="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
+<div mdbModal #basicModal="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
   aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
         <img src="{{currenUser.imageUrl}}" class="rounded float-left profile-image-detail" alt="">
-        <h4 class="modal-title w-100 font-weight-bold">{{currenUser.fullName}}</h4>
+        <h4 class="modal-title w-100 font-weight-bold">{{currenUser.fullName}} ({{currenUser.profil}})</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="basicModal.hide()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body mx-2">
+      
+      <!--USER DETAIL-->
+      <app-user-detail [user]=currenUser>
+      </app-user-detail>
+      <!--USER DETAIL-->
 
-        <!--INFO USER MATRICULE-->
-        <div class="row mb-3">
-          <strong class="col-4">Matricule :</strong>
-          <div class="col-8">
-            <input type="text" id="defaultForm-email" readonly class="form-control" value="{{currenUser.matricule}}"
-              mdbInput>
-          </div>
-        </div>
-        <!--INFO USER MATRICULE-->
-
-        <!--INFO USER NAME-->
-        <div class="row mb-3">
-          <strong class="col-4">Noms et prénom :</strong>
-          <div class="col-8 row">
-            <input type="text" id="defaultForm-email" class="form-control col-11" value="{{currenUser.fullName}}"
-              mdbInput>
-            <mdb-icon fas icon="edit" class="blue-text col-1"></mdb-icon>
-          </div>
-        </div>
-        <!--INFO USER NAME-->
-
-        <!--INFO USER PROFILE-->
-        <div class="row mb-3">
-          <strong class="col-4">Profile :</strong>
-          <div class="col-8 row">
-            <input type="text" id="defaultForm-email" class="form-control col-11" value="{{currenUser.profil}}"
-              mdbInput>
-            <mdb-icon fas icon="edit" class="blue-text col-1"></mdb-icon>
-          </div>
-        </div>
-        <!--INFO USER PROFILE-->
-
-      </div>
       <div class="modal-footer d-flex justify-content-center">
         <button mdbBtn color="default" (click)="closeModal()" class="waves-light" mdbWavesEffect>Close</button>
       </div>

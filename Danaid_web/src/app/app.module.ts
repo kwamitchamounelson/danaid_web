@@ -64,6 +64,9 @@ import { ValidateDocumentComponent } from './components/Administration/validate-
 import { AuthGuardComponent } from './components/Authentification/auth-guard/auth-guard.component';
 import { UserDetailComponent } from './components/Administration/user/user-detail/user-detail.component';
 import { ModalComponent } from './components/Administration/user/modal/modal.component';
+import { AdherentProfileComponent } from './components/Administration/profiles/adherent-profile/adherent-profile.component';
+import { SponsorProfileComponent } from './components/Administration/profiles/sponsor-profile/sponsor-profile.component';
+import { MdfProfileComponent } from './components/Administration/profiles/mdf-profile/mdf-profile.component';
 
 // 2. Add your credentials from step 1
 const config = {
@@ -97,7 +100,10 @@ const config = {
     ValidateDocumentComponent,
     AuthGuardComponent,
     UserDetailComponent,
-    ModalComponent
+    ModalComponent,
+    AdherentProfileComponent,
+    SponsorProfileComponent,
+    MdfProfileComponent
   ],
   imports: [
     BrowserModule,

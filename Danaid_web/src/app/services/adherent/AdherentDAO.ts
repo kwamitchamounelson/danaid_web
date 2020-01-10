@@ -13,6 +13,11 @@ export class AdherentDAO {
   ) {
     // this.adherentRef = this.firestore.collection<Adherent>(Constant.ADHERENTS);
   }
+
+  getAdherentDocumentByPhoneNumber(phoneNumber: string) {
+    return this.firestoreService.getEntityDocument(Constant.ADHERENTS, phoneNumber);
+  }
+
   getAdherentsDocuments() {
     return this.firestoreService.getEntitiesDocuments(Constant.ADHERENTS);
   }

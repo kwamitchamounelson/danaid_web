@@ -8,6 +8,10 @@ import { Adherent } from 'src/app/entities/adherent.model';
 })
 export class AdherentService implements AdherentInterface {
 
+  getAdherentByPhoneNumber(adherentPhoneNumber: string) {
+    return this.adherentDao.getAdherentDocumentByPhoneNumber(adherentPhoneNumber);
+  }
+
   getAllAdherent() {
     return this.adherentDao.getAdherentsDocuments();
   }

@@ -1,0 +1,173 @@
+<!--INFO ADHERENT GENRE-->
+<div class="row mb-3">
+    <strong class="col-4">Genre :</strong>
+    <div class="col-8 row">
+        <input type="text" id="defaultForm-email" class="form-control col-11" value="{{adherent.genre}}" mdbInput>
+        <mdb-icon fas icon="edit" class="blue-text col-1"></mdb-icon>
+    </div>
+</div>
+<!--INFO ADHERENT GENRE-->
+
+<!--INFO ADHERENT-->
+<div class="row mb-3">
+    <strong class="col-4">Addresse :</strong>
+    <div class="col-8 row">
+        <input type="text" id="defaultForm-email" class="form-control col-11" value="{{adherent.adresse}}" mdbInput>
+        <mdb-icon fas icon="edit" class="blue-text col-1"></mdb-icon>
+    </div>
+</div>
+<!--INFO ADHERENT-->
+
+<!--INFO ADHERENT-->
+<div class="row mb-3">
+    <strong class="col-4">Date validite :</strong>
+    <div class="col-8 row">
+        <input type="text" id="defaultForm-email" class="form-control col-11" value="{{adherent.datFinvalidite}}"
+            mdbInput>
+        <mdb-icon fas icon="edit" class="blue-text col-1"></mdb-icon>
+    </div>
+</div>
+<!--INFO ADHERENT-->
+
+<!--INFO ADHERENT-->
+<div class="row mb-3">
+    <strong class="col-4">Né le :</strong>
+    <div class="col-8 row">
+        <input type="text" id="defaultForm-email" class="form-control col-11" value="{{adherent.dateNaissance}}"
+            mdbInput>
+        <mdb-icon fas icon="edit" class="blue-text col-1"></mdb-icon>
+    </div>
+</div>
+<!--INFO ADHERENT-->
+
+<!--INFO ADHERENT-->
+<div class="row mb-3">
+    <strong class="col-4">Nom de famille :</strong>
+    <div class="col-8 row">
+        <input type="text" id="defaultForm-email" class="form-control col-11" value="{{adherent.nomFamille}}" mdbInput>
+        <mdb-icon fas icon="edit" class="blue-text col-1"></mdb-icon>
+    </div>
+</div>
+<!--INFO ADHERENT-->
+
+<!--INFO ADHERENT-->
+<div class="row mb-3">
+    <strong class="col-4">Prenom :</strong>
+    <div class="col-8 row">
+        <input type="text" id="defaultForm-email" class="form-control col-11" value="{{adherent.prenom}}" mdbInput>
+        <mdb-icon fas icon="edit" class="blue-text col-1"></mdb-icon>
+    </div>
+</div>
+<!--INFO ADHERENT-->
+
+<!--INFO ADHERENT-->
+<div class="row mb-3">
+    <strong class="col-4">Nombre d'enfant :</strong>
+    <div class="col-8 row">
+        <input type="text" id="defaultForm-email" class="form-control col-11" value="{{adherent.nombreEnfant}}"
+            mdbInput>
+        <mdb-icon fas icon="edit" class="blue-text col-1"></mdb-icon>
+    </div>
+</div>
+<!--INFO ADHERENT-->
+
+<!--INFO ADHERENT-->
+<div class="row mb-3">
+    <strong class="col-4">Profession :</strong>
+    <div class="col-8 row">
+        <input type="text" id="defaultForm-email" class="form-control col-11" value="{{adherent.profession}}" mdbInput>
+        <mdb-icon fas icon="edit" class="blue-text col-1"></mdb-icon>
+    </div>
+</div>
+<!--INFO ADHERENT-->
+
+<!--INFO ADHERENT-->
+<div class="row mb-3">
+    <strong class="col-4">Niveau protection :</strong>
+    <div class="col-8 row">
+        <input type="text" id="defaultForm-email" class="form-control col-11" value="{{adherent.protectionLevel}}"
+            mdbInput>
+        <mdb-icon fas icon="edit" class="blue-text col-1"></mdb-icon>
+    </div>
+</div>
+<!--INFO ADHERENT-->
+
+<!--INFO ADHERENT-->
+<div class="row mb-3">
+    <strong class="col-4">Statut :</strong>
+    <div class="col-8 row">
+        <mat-slide-toggle *ngIf="adherent.profilEnabled" checked>Actif</mat-slide-toggle>
+        <mat-slide-toggle *ngIf="!adherent.profilEnabled">Inactif</mat-slide-toggle>
+    </div>
+</div>
+<!--INFO ADHERENT-->
+
+<!--INFO ADHERENT-->
+<div class="row mb-3">
+    <h5><strong class="text-center mx-3">Liste des documents officiels</strong></h5>
+
+    <div class="card-deck">
+
+        <!-- Card -->
+        <mdb-card class="mx-2">
+            <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+                <!-- Card img -->
+                <mdb-card-img src="{{adherent.urlActeMariage}}" alt="Non disponible">
+                </mdb-card-img>
+                <a>
+                    <div class="mask"></div>
+                </a>
+            </div>
+            <!--Card content-->
+            <mdb-card-body>
+                <!--Title-->
+                <mdb-card-title>
+                    <h6>Acte de mariage</h6>
+                </mdb-card-title>
+            </mdb-card-body>
+        </mdb-card>
+        <!-- Card -->
+
+        <!-- Card -->
+        <mdb-card class="mx-2">
+            <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+                <!-- Card img -->
+                <mdb-card-img src="{{adherent.urlAutrePiecesJustificatif}}" alt="Non disponible">
+                </mdb-card-img>
+                <a>
+                    <div class="mask"></div>
+                </a>
+            </div>
+            <!--Card content-->
+            <mdb-card-body>
+                <!--Title-->
+                <mdb-card-title>
+                    <h6>Autre pièce</h6>
+                </mdb-card-title>
+            </mdb-card-body>
+        </mdb-card>
+        <!-- Card -->
+
+        <!-- Card -->
+        <mdb-card class="mx-2">
+            <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+                <!-- Card img -->
+                <mdb-card-img src="{{adherent.urlDocOficiel}}" alt="Non disponible">
+                </mdb-card-img>
+                <a>
+                    <div class="mask"></div>
+                </a>
+            </div>
+            <!--Card content-->
+            <mdb-card-body>
+                <!--Title-->
+                <mdb-card-title>
+                    <h6>Document officiel</h6>
+                </mdb-card-title>
+            </mdb-card-body>
+        </mdb-card>
+        <!-- Card -->
+
+    </div>
+</div>
+<!--INFO ADHERENT-->

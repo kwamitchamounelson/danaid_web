@@ -13,7 +13,7 @@ import { ModalDirective } from 'angular-bootstrap-md';
 export class UsersProfilesComponent implements OnInit {
 
   @ViewChild('basicModal', { static: false }) basicModal: ModalDirective;
-  currenUser: User
+  currenUser: User = new User()
   defaulProfilePicture = 'https://firebasestorage.googleapis.com/v0/b/danaidapp.appspot.com/o/user-profil.png?alt=media&token=10fc4c1d-7f22-48b8-897d-e5a973721628'
   userList: User[] = [];
   constructor(
@@ -83,5 +83,5 @@ export class UsersProfilesComponent implements OnInit {
 
   closeModal() {
     this.basicModal.hide();
-  } 
+  }
 }
