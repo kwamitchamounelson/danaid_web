@@ -18,7 +18,6 @@ export class UsersProfilesComponent implements OnInit {
   userList: User[] = [];
   constructor(
     private userService: UserServiceService,
-    private modalService: ModalService
   ) { }
   validatingForm: FormGroup;
   ngOnInit() {
