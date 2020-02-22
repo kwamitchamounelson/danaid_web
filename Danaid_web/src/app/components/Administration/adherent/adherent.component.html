@@ -114,9 +114,12 @@
                         <strong>{{adherent.nomFamille}}</strong>
                       </a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="JavaScript:Void(0)" [routerLink]="['/beneficiaire',adherent.id]">Voir les beneficiaires</a>
-                      <a class="dropdown-item" href="JavaScript:Void(0)" [routerLink]="['/facturation_adherent',adherent.id]">Voir les facturations</a>
-                      <a class="dropdown-item" href="JavaScript:Void(0)" [routerLink]="['/detail_adherent',adherent.id]">Afficher le profile</a>
+                      <a class="dropdown-item" href="JavaScript:Void(0)"
+                        [routerLink]="['/detail_adherent',adherent.id]">Afficher le profile</a>
+                      <a class="dropdown-item" href="JavaScript:Void(0)"
+                        [routerLink]="['/beneficiaire',adherent.id]">Voir les beneficiaires</a>
+                      <a class="dropdown-item" href="JavaScript:Void(0)"
+                        [routerLink]="['/facturation_adherent',adherent.id]">Voir les facturations</a>
                       <!-- <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="JavaScript:Void(0)">Operation3</a> -->
                     </div>

@@ -11,18 +11,6 @@
             <a href="JavaScript:Void(0)" class="col-4" (click)="loadData()">
               <i class="material-icons icone-head" title="actualiser">refresh</i>
             </a>
-
-            <!--TO ADD NEW USER-->
-            <a href="JavaScript:Void(0)" class="col-4" data-toggle="modal" data-target="#basicExample"
-              (click)="frame.show()" mdbWavesEffect>
-              <i class="material-icons icone-head" title="ajouter un nouvel utilisateur">person_add</i>
-            </a>
-            <!-- Modal: modalCart -->
-
-            <!-- Modal: modalCart -->
-            <!--TO ADD NEW USER-->
-
-
           </div>
         </div>
         <div class="card-body">
@@ -35,7 +23,6 @@
                 <th>Profil</th>
                 <th>Région</th>
                 <th>Telephone principal</th>
-                <th>Operations</th>
               </thead>
               <tbody>
                 <tr *ngFor="let user of userList;let index = index;">
@@ -43,79 +30,17 @@
                   <td (click)="openModal(user)" class="td-hover">{{user.matricule}}</td>
                   <td (click)="openModal(user)" class="td-hover">
                     <div>
-                      <img src="{{user.imageUrl}}" class="rounded float-left profile-image mr-2" alt="">
+                      <img *ngIf="user.imageUrl!==''" src="{{user.imageUrl}}"
+                        class="rounded float-left profile-image mr-2" alt="">
+
+                      <img *ngIf="user.imageUrl===''" src="{{defaulImage}}"
+                        class="rounded float-left profile-image mr-2" alt="">
                       <p>{{user.fullName}}</p>
                     </div>
                   </td>
                   <td (click)="openModal(user)" class="td-hover">{{user.profil}}</td>
                   <td (click)="openModal(user)" class="td-hover">{{user.regionDorigione}}</td>
                   <td (click)="openModal(user)" class="td-hover">{{user.phoneList[0].number}}</td>
-                  <td class="row">
-
-                    <!--TO ENABLE USER-->
-                    <a class="col-2" href="JavaScript:Void(0)" *ngIf="!user.enabled"
-                      (click)="enableOrdisableUser(user,1)">
-                      <i class=" fas fa-user-alt-slash icone" title="activer {{user.fullName}}"></i>
-                    </a>
-                    <!--TO ENABLE USER-->
-
-                    <!--TO DESABLE USER-->
-                    <a class="col-2" href="JavaScript:Void(0)" *ngIf="user.enabled"
-                      (click)="enableOrdisableUser(user,2)">
-                      <i class="fas fa-check-circle icone" title="désactiver {{user.fullName}}"></i>
-                    </a>
-                    <!--TO DESABLE USER-->
-
-
-                    <!--TO DELETE USER-->
-                    <a class="col-2" href="JavaScript:Void(0)" data-toggle="modal" data-target="#modalConfirmDelete">
-                      <i class="fas fa-trash-alt icone" title="supprimer {{user.fullName}}"></i>
-                    </a>
-                    <!--Modal: modalConfirmDelete-->
-                    <div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog"
-                      aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
-                        <!--Content-->
-                        <div class="modal-content text-center">
-                          <!--Header-->
-                          <div class="modal-header d-flex justify-content-center">
-                            <p class="heading">Etes-vous sur?</p>
-                          </div>
-                          <!--Body-->
-                          <div class="modal-body">
-                            <i class="fas fa-times fa-4x animated rotateIn"></i>
-                          </div>
-                          <!--Footer-->
-                          <div class="modal-footer flex-center justify-content-center">
-                            <a (click)="deleteUser(user)" data-dismiss="modal" href="JavaScript:Void(0)"
-                              class="btn  btn-outline-danger">Yes</a>
-                            <a type="button" class="btn  btn-danger waves-effect" data-dismiss="modal">No</a>
-                          </div>
-                        </div>
-                        <!--/.Content-->
-                      </div>
-                    </div>
-                    <!--Modal: modalConfirmDelete-->
-                    <!--TO DELETE USER-->
-
-
-                    <!--TO DO MORE OPERATIONS USER-->
-                    <a class="col-2" href="JavaScript:Void(0)" id="navbarDropdownProfile" data-toggle="dropdown"
-                      aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-h icone" title="autre"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                      <a class="dropdown-item" href="JavaScript:Void(0)" data-toggle="modal" data-target="#basicExample"
-                        (click)="openModal(user)" mdbWavesEffect>Details</a>
-                      <a class="dropdown-item" href="JavaScript:Void(0)">Operation1</a>
-                      <a class="dropdown-item" href="JavaScript:Void(0)">Operation2</a>
-                      <a class="dropdown-item" href="JavaScript:Void(0)">Operation3</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="JavaScript:Void(0)">Operation3</a>
-                    </div>
-                    <!--TO DO MORE OPERATIONS USER-->
-
-                  </td>
                 </tr>
               </tbody>
             </table>
@@ -186,7 +111,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      
+
       <!--USER DETAIL-->
       <app-user-detail [user]=currenUser>
       </app-user-detail>

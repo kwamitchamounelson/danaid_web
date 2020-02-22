@@ -1,1 +1,213 @@
-<p>detail-adherent works!</p>
+<div class="wrapper ">
+    <div class="main-panel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+            <div class="container-fluid">
+                <div class="navbar-wrapper">
+                    <p>Nom de l'adherent:
+                        <strong class="title-ad-detail">
+                            {{adherent.nomFamille}}
+                        </strong>
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <!-- End Navbar -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header card-header-primary">
+                                <h4 class="card-title">Modifier le profile</h4>
+                                <p class="card-category">Matricule : {{adherent.matricule}}</p>
+                            </div>
+                            <div class="card-body">
+
+                                <h5><strong class="text-center mx-3">Informations</strong></h5>
+                                <form>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Nom de famille</p>
+                                                <input type="text" class="form-control" value="{{adherent.nomFamille}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Prenom</p>
+                                                <input type="text" class="form-control" value="{{adherent.prenom}}">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Adresse</p>
+                                                <input type="text" class="form-control" value="{{adherent.adresse}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Adresse email</p>
+                                                <input type="text" class="form-control"
+                                                    value="{{adherent.emailAdress}}">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Sexe</p>
+                                                <input type="text" class="form-control" value="{{adherent.genre}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Nombre d'enfants</p>
+                                                <input type="text" class="form-control"
+                                                    value="{{adherent.nombreEnfant}}">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Niveau de protection</p>
+                                                <input type="text" class="form-control"
+                                                    value="{{adherent.protectionLevel}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Region d'origine</p>
+                                                <input type="text" class="form-control"
+                                                    value="{{adherent.regionDorigione}}">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--INFO USER PHONE NUMBERS-->
+                                    <div class="row mb-3 mx-3">
+                                        <strong>Téléphone(s) : </strong>
+                                        <div class="mx-3">
+                                            <mat-chip-list *ngFor="let phone of adherent.phoneList">
+                                                <mat-chip>{{phone.number}} ({{phone.operator}})</mat-chip>
+                                            </mat-chip-list>
+                                        </div>
+                                    </div>
+                                    <!--INFO USER PHONE NUMBERS-->
+
+                                    <!--DOC ADHERENT-->
+                                    <div class="row mb-3">
+                                        <h5><strong class="text-center mx-3">Liste des documents officiels</strong></h5>
+
+                                        <div class="card-deck">
+
+                                            <!-- Card -->
+                                            <mdb-card class="mx-2">
+                                                <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+                                                    <!-- Card img -->
+                                                    <mdb-card-img src="{{adherent.urlActeMariage}}"
+                                                        alt="Non disponible">
+                                                    </mdb-card-img>
+                                                    <a>
+                                                        <div class="mask"></div>
+                                                    </a>
+                                                </div>
+                                                <!--Card content-->
+                                                <mdb-card-body>
+                                                    <!--Title-->
+                                                    <mdb-card-title>
+                                                        <h6>Acte de mariage</h6>
+                                                    </mdb-card-title>
+                                                </mdb-card-body>
+                                            </mdb-card>
+                                            <!-- Card -->
+
+                                            <!-- Card -->
+                                            <mdb-card class="mx-2">
+                                                <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+                                                    <!-- Card img -->
+                                                    <mdb-card-img src="{{adherent.urlAutrePiecesJustificatif}}"
+                                                        alt="Non disponible">
+                                                    </mdb-card-img>
+                                                    <a>
+                                                        <div class="mask"></div>
+                                                    </a>
+                                                </div>
+                                                <!--Card content-->
+                                                <mdb-card-body>
+                                                    <!--Title-->
+                                                    <mdb-card-title>
+                                                        <h6>Autre pièce</h6>
+                                                    </mdb-card-title>
+                                                </mdb-card-body>
+                                            </mdb-card>
+                                            <!-- Card -->
+
+                                            <!-- Card -->
+                                            <mdb-card class="mx-2">
+                                                <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+                                                    <!-- Card img -->
+                                                    <mdb-card-img src="{{adherent.urlDocOficiel}}" alt="Non disponible">
+                                                    </mdb-card-img>
+                                                    <a>
+                                                        <div class="mask"></div>
+                                                    </a>
+                                                </div>
+                                                <!--Card content-->
+                                                <mdb-card-body>
+                                                    <!--Title-->
+                                                    <mdb-card-title>
+                                                        <h6>Document officiel</h6>
+                                                    </mdb-card-title>
+                                                </mdb-card-body>
+                                            </mdb-card>
+                                            <!-- Card -->
+
+                                        </div>
+                                    </div>
+                                    <!--DOC ADHERENT-->
+
+                                    <button class="btn btn-primary pull-right">Enregistrer les
+                                        modifications</button>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-profile">
+                            <div class="card-avatar">
+                                <img class="img" src="{{adherent.imageUrl}}" />
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-category text-gray">{{adherent.profil}}</h6>
+                                <h4 class="card-title">{{adherent.nomFamille}}</h4>
+                                <p class="card-description">{{generateDescription()}}</p>
+
+                                <a *ngIf="adherent.profilEnabled" href="JavaScript:Void(0)"
+                                    class="btn btn-danger btn-round" (click)="enableOrdisacleAdherent(adherent,2)">
+                                    Desactiver
+                                </a>
+                                <a *ngIf="!adherent.profilEnabled" href="JavaScript:Void(0)"
+                                    class="btn btn-primary btn-round" (click)="enableOrdisacleAdherent(adherent,1)">
+                                    Activer
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+
+        </footer>
+    </div>
+</div>
