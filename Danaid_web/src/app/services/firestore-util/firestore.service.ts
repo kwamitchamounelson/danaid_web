@@ -15,8 +15,20 @@ export class FirestoreService {
    * @param collectionName 
    * @returns  
    */
-  getEntitiesDocuments(collectionName:string) {
+  getEntitiesDocuments(collectionName: string) {
     return this.firestore.collection(collectionName).snapshotChanges();
+  }
+
+
+  /**
+   * Gets entities documents by filter
+   * @param collectionName 
+   * @param field 
+   * @param filterValue 
+   * @returns  
+   */
+  getEntitiesDocumentsByFilter(collectionName: string, field: string, filterValue: any) {
+    return this.firestore.collection(collectionName, ref => ref.where(field, '==', filterValue)).snapshotChanges();
   }
 
   /**
@@ -25,7 +37,7 @@ export class FirestoreService {
    * @param entity 
    * @returns  
    */
-  addEntityDocument(collectionName:string,entity: any) {
+  addEntityDocument(collectionName: string, entity: any) {
     return this.firestore.collection(collectionName).add(entity);
   }
 
@@ -56,7 +68,7 @@ export class FirestoreService {
    * @param id 
    * @returns  
    */
-  getEntityDocument(collectionName:string, id: string) {
+  getEntityDocument(collectionName: string, id: string) {
     return this.firestore.collection(collectionName).doc(id).get()
   }
 

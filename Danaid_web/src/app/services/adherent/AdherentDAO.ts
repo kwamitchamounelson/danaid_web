@@ -29,7 +29,7 @@ export class AdherentDAO {
   }
 
   updateAdherentDocument(adherent: Adherent) {
-    const phoneNumber = adherent.phoneList[0].number;
+    const phoneNumber = adherent.id;
     console.log('telephone : ' + phoneNumber);
     // delete adherent.phoneList[0].number;
     return this.firestoreService.updateEntityDocument(Constant.ADHERENTS, adherent, '' + phoneNumber);
@@ -37,5 +37,13 @@ export class AdherentDAO {
 
   deleteAdherentDocument(adherentPhoneNumber: string) {
     return this.firestoreService.deleteEntityDocument(Constant.ADHERENTS, adherentPhoneNumber);
+  }
+
+  getBeneficiaresDocumentForAdherent(AdherentId: string) {
+    return this.firestoreService.getEntitiesDocumentsByFilter(Constant.BENEFICIAIRES, 'adherentId', AdherentId);
+  }
+
+  getFacturationsDocumentForAdherent(AdherentId: string) {
+    return this.firestoreService.getEntitiesDocumentsByFilter(Constant.FACTURATIONS_ADHERENT, 'idAdherent', AdherentId);
   }
 }

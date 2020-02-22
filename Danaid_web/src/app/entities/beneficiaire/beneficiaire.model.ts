@@ -1,0 +1,21 @@
+export class Beneficiaire {
+    acteMariageName: string = "";
+    adherentId: string = "";
+    autrePieceName: string = "";
+    cniName: string = "";
+    createdDate: Date = null;
+    dateFinValidite: Date = null;
+    dateNaissance: Date = null
+    enabled: boolean = false;
+    genre: string = "";
+    ifVivreMemeDemeure: boolean = false;
+    infoSupplementaire: string = "";
+    matriculle: string = "";
+    nomDFamille: string = "";
+    prenom: string = "";
+    statusMembre: string = "";
+    urlActeMariage: string = "";
+    urlAutrPiece: string = "";
+    urlCNI: string = "";
+    urlImage: string = "";
+}

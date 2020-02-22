@@ -18,7 +18,6 @@ export class Adherent {
   adresse: string = "";
   createdDate: Date = null;
   dateNaissance: Date = null;
-  emailAdresse: string = "";
   imageUrl: string = "";
   isRecptionPaiementMobile: boolean = false;
   nombreEnfant: number = 0;

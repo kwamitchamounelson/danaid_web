@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdherentService } from 'src/app/services/adherent/adherent.service';
 import { Adherent } from 'src/app/entities/adherent.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adherent',
@@ -11,7 +12,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class AdherentComponent implements OnInit {
 
   adherentList: Adherent[] = [];
-  constructor(private adherentService: AdherentService) { }
+  defaulImage = 'https://firebasestorage.googleapis.com/v0/b/danaidapp.appspot.com/o/user-profil.png?alt=media&token=10fc4c1d-7f22-48b8-897d-e5a973721628';
+  constructor(private adherentService: AdherentService, private router: Router) { }
   validatingForm: FormGroup;
   ngOnInit() {
     this.validatingForm = new FormGroup({
@@ -64,7 +66,7 @@ export class AdherentComponent implements OnInit {
 
   // suppression d'un adherent
   deleteAdherent(adherent: Adherent) {
-    this.adherentService.deleteAdherent('' + adherent.phoneList[0].number);
+    this.adherentService.deleteAdherent('' + adherent.id);
   }
 
   // a supprimer
@@ -74,7 +76,7 @@ export class AdherentComponent implements OnInit {
     aderent.adresse = 'adress' + ran;
     aderent.createdDate = new Date(Date.now());
     aderent.dateNaissance = new Date(Date.now());
-    aderent.emailAdresse = 'email' + ran;
+    aderent.emailAdress = 'email' + ran;
     aderent.imageUrl = 'imageURL' + ran;
     aderent.isRecptionPaiementMobile = true;
     aderent.nombreEnfant = 0;
@@ -96,5 +98,20 @@ export class AdherentComponent implements OnInit {
     // });
     this.createNewAdherent(aderent);
   }
+
+  /* //afficher les beneficiaires d'un adherent
+  afficherBeneficiaires(adherent: Adherent) {
+    this.router.navigate(['/beneficiaire?adherent_id=' + adherent.id]);
+  }
+
+  //afficher les facturations d'un adherent
+  afficherFacturations(adherent: Adherent) {
+
+  }
+
+  //afficher les info d'un adherent
+  afficherInfos(adherent: Adherent) {
+
+  } */
 
 }

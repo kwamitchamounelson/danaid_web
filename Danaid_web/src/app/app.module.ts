@@ -67,6 +67,9 @@ import { ModalComponent } from './components/Administration/user/modal/modal.com
 import { AdherentProfileComponent } from './components/Administration/profiles/adherent-profile/adherent-profile.component';
 import { SponsorProfileComponent } from './components/Administration/profiles/sponsor-profile/sponsor-profile.component';
 import { MdfProfileComponent } from './components/Administration/profiles/mdf-profile/mdf-profile.component';
+import { SponsorComponent } from './components/Administration/sponsor/sponsor.component';
+import { BeneficiaireComponent } from './components/Administration/beneficiaire/beneficiaire.component';
+import { DetailAdherentComponent } from './components/Administration/detail-adherent/detail-adherent.component';
 
 // 2. Add your credentials from step 1
 const config = {
@@ -103,7 +106,10 @@ const config = {
     ModalComponent,
     AdherentProfileComponent,
     SponsorProfileComponent,
-    MdfProfileComponent
+    MdfProfileComponent,
+    SponsorComponent,
+    BeneficiaireComponent,
+    DetailAdherentComponent
   ],
   imports: [
     BrowserModule,
