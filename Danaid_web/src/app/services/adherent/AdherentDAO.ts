@@ -22,6 +22,14 @@ export class AdherentDAO {
     return this.firestoreService.getEntitiesDocuments(Constant.ADHERENTS);
   }
 
+  getSponsorsDocuments() {
+    return this.firestoreService.getEntitiesDocuments(Constant.SPONSORS);
+  }
+
+  getFacturationsDocuments() {
+    return this.firestoreService.getEntitiesDocuments(Constant.FACTURATIONS_ADHERENT);
+  }
+
   addAdherentDocument(adherent: Adherent) {
     return this.firestoreService.addEntityDocument(Constant.ADHERENTS, adherent);
     // return this.adherentRef.add(adherent);

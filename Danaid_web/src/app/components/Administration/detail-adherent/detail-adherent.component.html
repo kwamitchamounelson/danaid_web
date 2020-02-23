@@ -192,16 +192,42 @@
                                     <div class="row mb-3">
                                         <h5><strong class="text-center mx-3">Liste des documents officiels</strong></h5>
 
-                                        <div class="card-deck">
+                                        <div class="card-deck mx-3">
 
                                             <!-- Card -->
                                             <mdb-card class="mx-2">
                                                 <div class="view rgba-white-slight waves-light" mdbWavesEffect>
                                                     <!-- Card img -->
-                                                    <mdb-card-img src="{{adherent.urlActeMariage}}"
-                                                        alt="Non disponible">
-                                                    </mdb-card-img>
-                                                    <a>
+                                                    <img *ngIf="adherent.cniName!==''" class="image_doc"
+                                                        src="{{adherent.cniName}}" />
+                                                    <img *ngIf="adherent.cniName===''" class="image_doc"
+                                                        src="{{noImageDoc}}" />
+
+                                                    <a *ngIf="adherent.cniName!==''" href="{{adherent.cniName}}">
+                                                        <div class="mask"></div>
+                                                    </a>
+                                                </div>
+                                                <!--Card content-->
+                                                <mdb-card-body>
+                                                    <!--Title-->
+                                                    <mdb-card-title>
+                                                        <h6>CNI</h6>
+                                                    </mdb-card-title>
+                                                </mdb-card-body>
+                                            </mdb-card>
+                                            <!-- Card -->
+
+                                            <!-- Card -->
+                                            <mdb-card class="mx-2">
+                                                <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+                                                    <!-- Card img -->
+                                                    <img *ngIf="adherent.urlActeMariage!==''" class="image_doc"
+                                                        src="{{adherent.urlActeMariage}}" />
+                                                    <img *ngIf="adherent.urlActeMariage===''" class="image_doc"
+                                                        src="{{noImageDoc}}" />
+
+                                                    <a *ngIf="adherent.urlActeMariage!==''"
+                                                        href="{{adherent.urlActeMariage}}">
                                                         <div class="mask"></div>
                                                     </a>
                                                 </div>
@@ -219,10 +245,14 @@
                                             <mdb-card class="mx-2">
                                                 <div class="view rgba-white-slight waves-light" mdbWavesEffect>
                                                     <!-- Card img -->
-                                                    <mdb-card-img src="{{adherent.urlAutrePiecesJustificatif}}"
-                                                        alt="Non disponible">
-                                                    </mdb-card-img>
-                                                    <a>
+                                                    <img *ngIf="adherent.urlAutrePiecesJustificatif!==''"
+                                                        class="image_doc"
+                                                        src="{{adherent.urlAutrePiecesJustificatif}}" />
+                                                    <img *ngIf="adherent.urlAutrePiecesJustificatif===''"
+                                                        class="image_doc" src="{{noImageDoc}}" />
+
+                                                    <a *ngIf="adherent.urlAutrePiecesJustificatif!==''"
+                                                        href="{{adherent.urlAutrePiecesJustificatif}}">
                                                         <div class="mask"></div>
                                                     </a>
                                                 </div>
@@ -240,8 +270,10 @@
                                             <mdb-card class="mx-2">
                                                 <div class="view rgba-white-slight waves-light" mdbWavesEffect>
                                                     <!-- Card img -->
-                                                    <mdb-card-img src="{{adherent.urlDocOficiel}}" alt="Non disponible">
-                                                    </mdb-card-img>
+                                                    <img *ngIf="adherent.urlDocOficiel!==''" class="image_doc"
+                                                        src="{{adherent.urlDocOficiel}}" />
+                                                    <img *ngIf="adherent.urlDocOficiel===''" class="image_doc"
+                                                        src="{{noImageDoc}}" />
                                                     <a>
                                                         <div class="mask"></div>
                                                     </a>

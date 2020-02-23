@@ -1,1 +1,53 @@
-<p>sponsor works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-primary row">
+                    <div class=col-9>
+                        <h4 class="card-title ">Liste des Sponsors</h4>
+                        <p class="card-category"> Total : {{sponsorLis.length}}</p>
+                    </div>
+                    <div class="col-3 row">
+                        <a href="JavaScript:Void(0)" class="col-4" (click)="loadData()">
+                            <i class="material-icons icone-head" title="actualiser">refresh</i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                                <th>No</th>
+                                <th>Nom du groupe</th>
+                                <th>Categorie</th>
+                                <th>Ville</th>
+                                <th>Adresse</th>
+                                <th>Personne a contacter</th>
+                                <th>Fontion</th>
+                                <th>Profile</th>
+                                <th>Telephones</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let sponsor of sponsorLis;let index = index;">
+                                    <td>{{index + 1}}</td>
+                                    <td>{{sponsor.nomDuGroupe}}</td>
+                                    <td>{{sponsor.categorie}}</td>
+                                    <td>{{sponsor.ville}}</td>
+                                    <td>{{sponsor.addresse}}</td>
+                                    <td>{{sponsor.personneContactName}}</td>
+                                    <td>{{sponsor.personneContactfunction}}</td>
+                                    <td>{{sponsor.profil}}</td>
+                                    <td>
+                                        <p *ngFor="let phone of sponsor.phoneList;">
+                                            {{phone.number}}
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="row">
+    <img *ngIf="dataEntity.imageUrl!==''" src="{{dataEntity.imageUrl}}" class="rounded float-left profile-image mr-2"
+        alt="">
+
+    <img *ngIf="dataEntity.imageUrl===''" src="{{defaulImage}}" class="rounded float-left profile-image mr-2" alt="">
+    <div class="col">
+        <p *ngFor="let data of dataEntity.infos;let index = index;">
+            {{data}}
+        </p>
+    </div>
+</div>

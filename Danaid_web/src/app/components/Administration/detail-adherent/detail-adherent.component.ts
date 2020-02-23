@@ -15,7 +15,7 @@ export class DetailAdherentComponent implements OnInit {
   //beneficiaireList: Beneficiaire[] = [];
 
   defaulImage = 'https://firebasestorage.googleapis.com/v0/b/danaidapp.appspot.com/o/user-profil.png?alt=media&token=10fc4c1d-7f22-48b8-897d-e5a973721628';
-
+  noImageDoc = 'https://firebasestorage.googleapis.com/v0/b/danaidapp.appspot.com/o/images-help.png?alt=media&token=059c1b9e-5a4c-4fd7-afa3-8c040de9f401'
 
   profileOption = 'profile';
   beneficiaireOption = 'beneficiaire'

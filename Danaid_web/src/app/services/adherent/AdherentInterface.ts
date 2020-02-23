@@ -8,4 +8,6 @@ export interface AdherentInterface {
   getAdherentByPhoneNumber(adherentPhoneNumber: string);
   getAllBeneficiaresOfAdherent(adherentId: string);
   getAllFacturationsOfAdherent(adherentId: string);
+  getAllFacturations();
+  getAllSponsors();
 }

@@ -45,9 +45,6 @@ import { FooterComponent } from './static-elements/footer/footer.component';
 import { NavBarComponent } from './static-elements/nav-bar/nav-bar.component';
 import { AdherentComponent } from './components/Administration/adherent/adherent.component';
 import { FacturationComponent } from './components/Administration/detail/facturation/facturation.component';
-import { AjoutPersonneChargeComponent } from './components/Administration/ajout-personne-charge/ajout-personne-charge.component';
-import { ChooseUpdateMdfComponent } from './components/Administration/choose-update-mdf/choose-update-mdf.component';
-import { DemandeServiceComponent } from './components/Administration/demande-service/demande-service.component';
 import { ChangeBackgroundComponent } from './static-elements/change-background/change-background.component';
 import { MainComponent } from './components/Administration/main/main.component';
 
@@ -67,6 +64,8 @@ import { MdfProfileComponent } from './components/Administration/profiles/mdf-pr
 import { SponsorComponent } from './components/Administration/sponsor/sponsor.component';
 import { BeneficiaireComponent } from './components/Administration/detail/beneficiaire/beneficiaire.component';
 import { DetailAdherentComponent } from './components/Administration/detail-adherent/detail-adherent.component';
+import { AllFacturationComponent } from './components/Administration/all-facturation/all-facturation.component';
+import { DataEntityComponent } from './components/Administration/detail/data-entity/data-entity.component';
 
 // 2. Add your credentials from step 1
 const config = {
@@ -89,9 +88,6 @@ const config = {
     NavBarComponent,
     AdherentComponent,
     FacturationComponent,
-    AjoutPersonneChargeComponent,
-    ChooseUpdateMdfComponent,
-    DemandeServiceComponent,
     ChangeBackgroundComponent,
     MainComponent,
     SignInUserComponent,
@@ -103,7 +99,9 @@ const config = {
     MdfProfileComponent,
     SponsorComponent,
     BeneficiaireComponent,
-    DetailAdherentComponent
+    DetailAdherentComponent,
+    AllFacturationComponent,
+    DataEntityComponent
   ],
   imports: [
     BrowserModule,

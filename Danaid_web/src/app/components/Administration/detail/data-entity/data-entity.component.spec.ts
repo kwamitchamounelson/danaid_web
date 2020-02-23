@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChooseUpdateMdfComponent } from './choose-update-mdf.component';
+import { DataEntityComponent } from './data-entity.component';
 
-describe('ChooseUpdateMdfComponent', () => {
-  let component: ChooseUpdateMdfComponent;
-  let fixture: ComponentFixture<ChooseUpdateMdfComponent>;
+describe('DataEntityComponent', () => {
+  let component: DataEntityComponent;
+  let fixture: ComponentFixture<DataEntityComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChooseUpdateMdfComponent ]
+      declarations: [ DataEntityComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ChooseUpdateMdfComponent);
+    fixture = TestBed.createComponent(DataEntityComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

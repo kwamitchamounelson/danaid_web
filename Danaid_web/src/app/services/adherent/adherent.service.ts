@@ -8,6 +8,14 @@ import { Adherent } from 'src/app/entities/adherent.model';
 })
 export class AdherentService implements AdherentInterface {
 
+  getAllSponsors() {
+    return this.adherentDao.getSponsorsDocuments();
+  }
+
+  getAllFacturations() {
+    return this.adherentDao.getFacturationsDocuments();
+  }
+
   getAllFacturationsOfAdherent(adherentId: string) {
     return this.adherentDao.getFacturationsDocumentForAdherent(adherentId);
   }

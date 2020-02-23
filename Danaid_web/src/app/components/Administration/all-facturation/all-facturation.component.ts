@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Facturation } from 'src/app/entities/facturation/facturation.model';
 import { ActivatedRoute } from '@angular/router';
 import { AdherentService } from 'src/app/services/adherent/adherent.service';
-import { Facturation } from 'src/app/entities/facturation/facturation.model';
 
 @Component({
-  selector: 'app-facturation',
-  templateUrl: './facturation.component.html',
-  styleUrls: ['./facturation.component.scss']
+  selector: 'app-all-facturation',
+  templateUrl: './all-facturation.component.html',
+  styleUrls: ['./all-facturation.component.scss']
 })
-export class FacturationComponent implements OnInit {
+export class AllFacturationComponent implements OnInit {
 
   facturationList: Facturation[] = []
   constructor(private route: ActivatedRoute, private adherentService: AdherentService) { }
@@ -17,14 +17,12 @@ export class FacturationComponent implements OnInit {
     this.loadData();
   }
   loadData() {
-    this.route.paramMap.subscribe(params => {
-      this.adherentService.getAllFacturationsOfAdherent(params.get('adherent_id')).subscribe(data => {
-        this.facturationList = data.map(e => {
-          return {
-            id: e.payload.doc.id,
-            ...e.payload.doc.data()
-          } as Facturation;
-        });
+    this.adherentService.getAllFacturations().subscribe(data => {
+      this.facturationList = data.map(e => {
+        return {
+          id: e.payload.doc.id,
+          ...e.payload.doc.data()
+        } as Facturation;
       });
     });
   }
@@ -35,4 +33,5 @@ export class FacturationComponent implements OnInit {
     const dateStr = '' + date.getUTCDay() + '-' + date.getUTCMonth() + '-' + date.getUTCFullYear()
     return dateStr;
   }
+
 }

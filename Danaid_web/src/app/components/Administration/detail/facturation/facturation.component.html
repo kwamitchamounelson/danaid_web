@@ -22,6 +22,9 @@
                         <th>Categorie</th>
                         <th>Nombre sup. persone</th>
                         <th>Montant</th>
+                        <th>Date debut cou.</th>
+                        <th>Date Fin cou.</th>
+                        <th>Date Paiement</th>
                     </thead>
                     <tbody>
                         <tr *ngFor="let facturation of facturationList;let index = index;">
@@ -32,6 +35,15 @@
                             <td>{{facturation.categoriePaiement}}</td>
                             <td>{{facturation.nbPersonneSupplement}}</td>
                             <td>{{facturation.montant}}</td>
+                            <td>{{formatDate(facturation.dateDebutCouvertureAdherent.seconds)}}</td>
+                            <td>{{formatDate(facturation.dateFinCouvertureAdherent.seconds)}}</td>
+
+                            <td *ngIf="facturation.dateReglementDuPaiement">
+                                {{formatDate(facturation.dateReglementDuPaiement.seconds)}}
+                            </td>
+                            <td *ngIf="!facturation.dateReglementDuPaiement">
+                                //
+                            </td>
                         </tr>
                     </tbody>
                 </table>
