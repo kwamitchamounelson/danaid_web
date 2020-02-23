@@ -56,19 +56,30 @@
                             <div class="card-body">
 
                                 <h5><strong class="text-center mx-3">Informations</strong></h5>
-                                <form>
+                                <form [formGroup]="profileForm">
+
+                                    <!--INFO USER PHONE NUMBERS-->
+                                    <div class="row mb-3 mx-3">
+                                        <strong>Téléphone(s) : </strong>
+                                        <div class="mx-3">
+                                            <mat-chip-list *ngFor="let phone of adherent.phoneList">
+                                                <mat-chip>{{phone.number}} ({{phone.operator}})</mat-chip>
+                                            </mat-chip-list>
+                                        </div>
+                                    </div>
+                                    <!--INFO USER PHONE NUMBERS-->
 
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <p class="label-input">Nom de famille</p>
-                                                <input type="text" class="form-control" value="{{adherent.nomFamille}}">
+                                                <input type="text" class="form-control" formControlName="nom">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <p class="label-input">Prenom</p>
-                                                <input type="text" class="form-control" value="{{adherent.prenom}}">
+                                                <input type="text" class="form-control" formControlName="prenom">
                                             </div>
                                         </div>
                                     </div>
@@ -77,14 +88,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <p class="label-input">Adresse</p>
-                                                <input type="text" class="form-control" value="{{adherent.adresse}}">
+                                                <input type="text" class="form-control" formControlName="adresse">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <p class="label-input">Adresse email</p>
-                                                <input type="text" class="form-control"
-                                                    value="{{adherent.emailAdress}}">
+                                                <input type="text" class="form-control" formControlName="email">
                                             </div>
                                         </div>
                                     </div>
@@ -116,8 +126,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <p class="label-input">Region d'origine</p>
-                                                <input type="text" class="form-control"
-                                                    value="{{adherent.regionDorigione}}">
+                                                <input type="text" class="form-control" formControlName="region">
                                             </div>
                                         </div>
                                     </div>
@@ -126,7 +135,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <p class="label-input">Profession</p>
-                                                <input type="text" class="form-control" value="{{adherent.profession}}">
+                                                <input type="text" class="form-control" formControlName="profession">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -148,7 +157,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <p class="label-input">ville</p>
-                                                <input type="text" class="form-control" value="{{adherent.ville}}">
+                                                <input type="text" class="form-control" formControlName="ville">
                                             </div>
                                         </div>
                                     </div>
@@ -158,35 +167,29 @@
                                             <div class="form-group">
                                                 <p class="label-input">Date de naissance</p>
                                                 <input type="text" class="form-control"
-                                                    value="{{formatDate(adherent.dateNaissance.seconds)}}">
+                                                    value="{{adherent.dateNaissance}}">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <p class="label-input">Date d'enregistrement</p>
                                                 <input type="text" class="form-control"
-                                                    value="{{formatDate(adherent.createdDate.seconds)}}">
+                                                    value="{{adherent.createdDate}}">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <p class="label-input">Date de fin de validite</p>
                                                 <input type="text" class="form-control"
-                                                    value="{{formatDate(adherent.datFinvalidite.seconds)}}">
+                                                    value="{{adherent.datFinvalidite}}">
                                             </div>
                                         </div>
                                     </div>
 
-                                    <!--INFO USER PHONE NUMBERS-->
-                                    <div class="row mb-3 mx-3">
-                                        <strong>Téléphone(s) : </strong>
-                                        <div class="mx-3">
-                                            <mat-chip-list *ngFor="let phone of adherent.phoneList">
-                                                <mat-chip>{{phone.number}} ({{phone.operator}})</mat-chip>
-                                            </mat-chip-list>
-                                        </div>
-                                    </div>
-                                    <!--INFO USER PHONE NUMBERS-->
+                                    <button class="btn btn-primary pull-left mb-3">Enregistrer les
+                                        modifications
+                                    </button>
+                                    <div class="clearfix"></div>
 
                                     <!--DOC ADHERENT-->
                                     <div class="row mb-3">
@@ -291,10 +294,6 @@
                                         </div>
                                     </div>
                                     <!--DOC ADHERENT-->
-
-                                    <button class="btn btn-primary pull-right">Enregistrer les
-                                        modifications</button>
-                                    <div class="clearfix"></div>
                                 </form>
                             </div>
                         </div>

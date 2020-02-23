@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Adherent } from 'src/app/entities/adherent.model';
 import { ActivatedRoute } from '@angular/router';
 import { AdherentService } from 'src/app/services/adherent/adherent.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-detail-adherent',
@@ -18,9 +19,11 @@ export class DetailAdherentComponent implements OnInit {
   noImageDoc = 'https://firebasestorage.googleapis.com/v0/b/danaidapp.appspot.com/o/images-help.png?alt=media&token=059c1b9e-5a4c-4fd7-afa3-8c040de9f401'
 
   profileOption = 'profile';
-  beneficiaireOption = 'beneficiaire'
-  facturationOption = 'facturation'
-  option = ''
+  beneficiaireOption = 'beneficiaire';
+  facturationOption = 'facturation';
+  option = '';
+
+  profileForm: FormGroup
 
   constructor(private route: ActivatedRoute, private adherentService: AdherentService) { }
 
@@ -43,6 +46,17 @@ export class DetailAdherentComponent implements OnInit {
 
   updateUI(option: string) {
     this.option = option;
+    if (this.option === this.profileOption) {
+      this.profileForm = new FormGroup({
+        nom: new FormControl(this.adherent.nomFamille),
+        prenom: new FormControl(this.adherent.prenom),
+        adresse: new FormControl(this.adherent.adresse),
+        email: new FormControl(this.adherent.emailAdress),
+        region: new FormControl(this.adherent.regionDorigione),
+        profession: new FormControl(this.adherent.profession),
+        ville: new FormControl(this.adherent.ville),
+      });
+    }
   }
 
   generateDescription(): string {
