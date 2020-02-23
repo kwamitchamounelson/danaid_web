@@ -42,6 +42,18 @@
             <p>Facturations</p>
           </a>
         </li>
+        <li class={{setStyle(12)}} (click)="loadData(12)">
+          <a class="nav-link" href="JavaScript:Void(0)">
+            <i class="fa fa-user-md"></i>
+            <p>Medecins</p>
+          </a>
+        </li>
+        <li class={{setStyle(13)}} (click)="loadData(13)">
+          <a class="nav-link" href="JavaScript:Void(0)">
+            <i class="material-icons">business_center</i>
+            <p>Prestataires</p>
+          </a>
+        </li>
         <!-- <li class={{setStyle(5)}} (click)="loadData(5)">
           <a class="nav-link" href="JavaScript:Void(0)">
             <i class="material-icons">transfer_within_a_station</i>
@@ -96,6 +108,8 @@
         <app-adherent *ngSwitchCase=3></app-adherent>
         <app-all-facturation *ngSwitchCase=4></app-all-facturation>
         <app-sponsor *ngSwitchCase=11></app-sponsor>
+        <app-medecin *ngSwitchCase=12></app-medecin>
+        <app-pretataire *ngSwitchCase=13></app-pretataire>
         <app-adherent *ngSwitchDefault></app-adherent>
       </div>
       <!-- chargement des contenues -->

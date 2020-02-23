@@ -66,6 +66,8 @@ import { BeneficiaireComponent } from './components/Administration/detail/benefi
 import { DetailAdherentComponent } from './components/Administration/detail-adherent/detail-adherent.component';
 import { AllFacturationComponent } from './components/Administration/all-facturation/all-facturation.component';
 import { DataEntityComponent } from './components/Administration/detail/data-entity/data-entity.component';
+import { MedecinComponent } from './components/Administration/medecin/medecin.component';
+import { PretataireComponent } from './components/Administration/pretataire/pretataire.component';
 
 // 2. Add your credentials from step 1
 const config = {
@@ -101,7 +103,9 @@ const config = {
     BeneficiaireComponent,
     DetailAdherentComponent,
     AllFacturationComponent,
-    DataEntityComponent
+    DataEntityComponent,
+    MedecinComponent,
+    PretataireComponent
   ],
   imports: [
     BrowserModule,
