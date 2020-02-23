@@ -11,15 +11,38 @@ import { AdherentService } from 'src/app/services/adherent/adherent.service';
 export class DetailAdherentComponent implements OnInit {
 
   adherent: Adherent;
+  //facturationList: Facturation[] = [];
+  //beneficiaireList: Beneficiaire[] = [];
+
+  defaulImage = 'https://firebasestorage.googleapis.com/v0/b/danaidapp.appspot.com/o/user-profil.png?alt=media&token=10fc4c1d-7f22-48b8-897d-e5a973721628';
+
+
+  profileOption = 'profile';
+  beneficiaireOption = 'beneficiaire'
+  facturationOption = 'facturation'
+  option = ''
+
   constructor(private route: ActivatedRoute, private adherentService: AdherentService) { }
 
   ngOnInit() {
+    this.initData();
+  }
+
+
+  // affichage des infos
+  initData() {
     this.route.paramMap.subscribe(params => {
       this.adherentService.getAdherentByPhoneNumber(params.get('adherent_id')).subscribe(data => {
         this.adherent = data.data() as Adherent
-        console.log(this.adherent)
+        this.route.paramMap.subscribe(params => {
+          this.updateUI(params.get('option'));
+        });
       });
     });
+  }
+
+  updateUI(option: string) {
+    this.option = option;
   }
 
   generateDescription(): string {
@@ -39,6 +62,22 @@ export class DetailAdherentComponent implements OnInit {
   // modification d'un adherent
   updateAdherent(adherent: Adherent) {
     this.adherentService.updateAdherent(adherent);
+  }
+
+  // modification d'un adherent
+  formatDate(sec: number): string {
+    const date = new Date(sec * 1000);
+    const dateStr = '' + date.getUTCDay() + '-' + date.getUTCMonth() + '-' + date.getUTCFullYear()
+    return dateStr;
+  }
+
+  // fonction permettant de changer llelement actif de la dashboard
+  setStyle(option: string): string {
+    if (option === this.option) {
+      return 'nav-item active ';
+    } else {
+      return 'nav-item ';
+    }
   }
 
 }

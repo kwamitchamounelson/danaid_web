@@ -32,7 +32,7 @@
         </li>
         <li class={{setStyle(11)}} (click)="loadData(11)">
           <a class="nav-link" href="JavaScript:Void(0)">
-            <i class="material-icons">accessible_forward</i>
+            <i class="material-icons">work</i>
             <p>Sponsor</p>
           </a>
         </li>
@@ -95,12 +95,9 @@
         <app-users-profiles *ngSwitchCase=2></app-users-profiles>
         <app-adherent *ngSwitchCase=3></app-adherent>
         <app-facturation *ngSwitchCase=4></app-facturation>
-        <app-profil-updated *ngSwitchCase=5></app-profil-updated>
         <app-ajout-personne-charge *ngSwitchCase=6></app-ajout-personne-charge>
         <app-choose-update-mdf *ngSwitchCase=7></app-choose-update-mdf>
         <app-demande-service *ngSwitchCase=8></app-demande-service>
-        <app-validate-code *ngSwitchCase=9></app-validate-code>
-        <app-validate-document *ngSwitchCase=10></app-validate-document>
         <app-sponsor *ngSwitchCase=11></app-sponsor>
         <app-adherent *ngSwitchDefault></app-adherent>
       </div>

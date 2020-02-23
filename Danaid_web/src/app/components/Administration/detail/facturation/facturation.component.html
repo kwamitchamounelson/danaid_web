@@ -1,0 +1,41 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header card-header-primary row">
+            <div class=col-9>
+                <h4 class="card-title ">Liste des Facturations</h4>
+                <p class="card-category"> Total : {{facturationList.length}}</p>
+            </div>
+            <div class="col-3 row">
+                <a href="JavaScript:Void(0)" class="col-4" (click)="loadData()">
+                    <i class="material-icons icone-head" title="actualiser">refresh</i>
+                </a>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class=" text-primary">
+                        <th>No</th>
+                        <th>Niveau</th>
+                        <th>Numero recu</th>
+                        <th>Intitule</th>
+                        <th>Categorie</th>
+                        <th>Nombre sup. persone</th>
+                        <th>Montant</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let facturation of facturationList;let index = index;">
+                            <td>{{index + 1}}</td>
+                            <td>{{facturation.niveauCotisation}}</td>
+                            <td>{{facturation.numeroRecu}}</td>
+                            <td>{{facturation.intitule}}</td>
+                            <td>{{facturation.categoriePaiement}}</td>
+                            <td>{{facturation.nbPersonneSupplement}}</td>
+                            <td>{{facturation.montant}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

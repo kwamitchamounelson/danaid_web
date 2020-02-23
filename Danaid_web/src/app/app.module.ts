@@ -44,8 +44,7 @@ import { UsersProfilesComponent } from './components/Administration/user/users-p
 import { FooterComponent } from './static-elements/footer/footer.component';
 import { NavBarComponent } from './static-elements/nav-bar/nav-bar.component';
 import { AdherentComponent } from './components/Administration/adherent/adherent.component';
-import { FacturationComponent } from './components/Administration/facturation/facturation.component';
-import { ProfilUpdatedComponent } from './components/Administration/profil-updated/profil-updated.component';
+import { FacturationComponent } from './components/Administration/detail/facturation/facturation.component';
 import { AjoutPersonneChargeComponent } from './components/Administration/ajout-personne-charge/ajout-personne-charge.component';
 import { ChooseUpdateMdfComponent } from './components/Administration/choose-update-mdf/choose-update-mdf.component';
 import { DemandeServiceComponent } from './components/Administration/demande-service/demande-service.component';
@@ -59,8 +58,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { SignInUserComponent } from './components/Authentification/sign-in-user/sign-in-user.component';
-import { ValidateCodeComponent } from './components/Administration/validate-code/validate-code.component';
-import { ValidateDocumentComponent } from './components/Administration/validate-document/validate-document.component';
 import { AuthGuardComponent } from './components/Authentification/auth-guard/auth-guard.component';
 import { UserDetailComponent } from './components/Administration/user/user-detail/user-detail.component';
 import { ModalComponent } from './components/Administration/user/modal/modal.component';
@@ -68,7 +65,7 @@ import { AdherentProfileComponent } from './components/Administration/profiles/a
 import { SponsorProfileComponent } from './components/Administration/profiles/sponsor-profile/sponsor-profile.component';
 import { MdfProfileComponent } from './components/Administration/profiles/mdf-profile/mdf-profile.component';
 import { SponsorComponent } from './components/Administration/sponsor/sponsor.component';
-import { BeneficiaireComponent } from './components/Administration/beneficiaire/beneficiaire.component';
+import { BeneficiaireComponent } from './components/Administration/detail/beneficiaire/beneficiaire.component';
 import { DetailAdherentComponent } from './components/Administration/detail-adherent/detail-adherent.component';
 
 // 2. Add your credentials from step 1
@@ -92,15 +89,12 @@ const config = {
     NavBarComponent,
     AdherentComponent,
     FacturationComponent,
-    ProfilUpdatedComponent,
     AjoutPersonneChargeComponent,
     ChooseUpdateMdfComponent,
     DemandeServiceComponent,
     ChangeBackgroundComponent,
     MainComponent,
     SignInUserComponent,
-    ValidateCodeComponent,
-    ValidateDocumentComponent,
     AuthGuardComponent,
     UserDetailComponent,
     ModalComponent,

@@ -1,0 +1,48 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header card-header-primary row">
+            <div class=col-9>
+                <h4 class="card-title ">Liste des Beneficiaires</h4>
+                <p class="card-category"> Total : {{beneficiaireList.length}}</p>
+            </div>
+            <div class="col-3 row">
+                <a href="JavaScript:Void(0)" class="col-4" (click)="loadData()">
+                    <i class="material-icons icone-head" title="actualiser">refresh</i>
+                </a>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class=" text-primary">
+                        <th>No</th>
+                        <th>Matricule</th>
+                        <th>Nom</th>
+                        <th>Status du membre</th>
+                        <th>Infos supp</th>
+                        <th>Sexe</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let beneficiaire of beneficiaireList;let index = index;">
+                            <td>{{index + 1}}</td>
+                            <td>{{beneficiaire.matriculle}}</td>
+                            <td>
+                                <div>
+                                    <img *ngIf="beneficiaire.urlImage!==''" src="{{beneficiaire.urlImage}}"
+                                        class="rounded float-left profile-image mr-2" alt="">
+
+                                    <img *ngIf="beneficiaire.urlImage===''" src="{{defaulImage}}"
+                                        class="rounded float-left profile-image mr-2" alt="">
+                                    <p>{{beneficiaire.nomDFamille}} {{beneficiaire.prenom}}</p>
+                                </div>
+                            </td>
+                            <td>{{beneficiaire.statusMembre}}</td>
+                            <td>{{beneficiaire.infoSupplementaire}}</td>
+                            <td>{{beneficiaire.genre}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -48,7 +48,7 @@
 
                       <img *ngIf="adherent.imageUrl===''" src="{{defaulImage}}"
                         class="rounded float-left profile-image mr-2" alt="">
-                      <p>{{adherent.nomFamille}}</p>
+                      <p>{{adherent.nomFamille}} {{adherent.prenom}}</p>
                     </div>
                   </td>
                   <td>{{adherent.ville}}</td>
@@ -109,17 +109,18 @@
                       <i class="fas fa-ellipsis-h icone" title="autre"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                      <a class="dropdown-item" href="JavaScript:Void(0)">
+                      <a class="dropdown-item" href="JavaScript:Void(0)"
+                        [routerLink]="['/detail_adherent',adherent.id,profileOption]">
                         <img src="{{adherent.imageUrl}}" class="rounded float-left profile-image mr-2" alt="">
                         <strong>{{adherent.nomFamille}}</strong>
                       </a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="JavaScript:Void(0)"
-                        [routerLink]="['/detail_adherent',adherent.id]">Afficher le profile</a>
+                        [routerLink]="['/detail_adherent',adherent.id,profileOption]">Afficher le profile</a>
                       <a class="dropdown-item" href="JavaScript:Void(0)"
-                        [routerLink]="['/beneficiaire',adherent.id]">Voir les beneficiaires</a>
+                        [routerLink]="['/detail_adherent',adherent.id,beneficiaireOption]">Voir les beneficiaires</a>
                       <a class="dropdown-item" href="JavaScript:Void(0)"
-                        [routerLink]="['/facturation_adherent',adherent.id]">Voir les facturations</a>
+                        [routerLink]="['/detail_adherent',adherent.id,facturationOption]">Voir les facturations</a>
                       <!-- <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="JavaScript:Void(0)">Operation3</a> -->
                     </div>

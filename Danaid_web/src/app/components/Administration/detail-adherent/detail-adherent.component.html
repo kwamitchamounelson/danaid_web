@@ -1,12 +1,41 @@
 <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="adherent.imageUrl">
+        <div class="logo">
+            <a href="JavaScript:Void(0)" class="simple-text logo-normal" [routerLink]="['/dashboad']">
+                <i class="material-icons">keyboard_backspace</i>
+            </a>
+        </div>
+        <div class="sidebar-wrapper">
+            <ul class="nav">
+                <li class="{{setStyle(profileOption)}}" (click)="updateUI(profileOption)">
+                    <a class="nav-link" href="JavaScript:Void(0)">
+                        <i class="material-icons">details</i>
+                        <p>Profile</p>
+                    </a>
+                </li>
+                <li class="{{setStyle(facturationOption)}}" (click)="updateUI(facturationOption)">
+                    <a class="nav-link" href="JavaScript:Void(0)">
+                        <i class="material-icons">attach_money</i>
+                        <p>Facturations</p>
+                    </a>
+                </li>
+                <li class="{{setStyle(beneficiaireOption)}}" (click)="updateUI(beneficiaireOption)">
+                    <a class="nav-link" href="JavaScript:Void(0)">
+                        <i class="material-icons">group_work</i>
+                        <p>Beneficiaires</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
     <div class="main-panel">
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
             <div class="container-fluid">
                 <div class="navbar-wrapper">
-                    <p>Nom de l'adherent:
+                    <p>
                         <strong class="title-ad-detail">
-                            {{adherent.nomFamille}}
+                            {{adherent.nomFamille}} {{adherent.prenom}}
                         </strong>
                     </p>
                 </div>
@@ -16,8 +45,10 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-8">
-                        <div class="card">
+                    <div class="col-md-8" [ngSwitch]=option>
+                        <app-facturation *ngSwitchCase=facturationOption></app-facturation>
+                        <app-beneficiaire *ngSwitchCase=beneficiaireOption></app-beneficiaire>
+                        <div class="card" *ngSwitchCase=profileOption>
                             <div class="card-header card-header-primary">
                                 <h4 class="card-title">Modifier le profile</h4>
                                 <p class="card-category">Matricule : {{adherent.matricule}}</p>
@@ -87,6 +118,61 @@
                                                 <p class="label-input">Region d'origine</p>
                                                 <input type="text" class="form-control"
                                                     value="{{adherent.regionDorigione}}">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Profession</p>
+                                                <input type="text" class="form-control" value="{{adherent.profession}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Profile</p>
+                                                <input type="text" class="form-control" value="{{adherent.profil}}">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Marié?</p>
+                                                <input type="text" class="form-control"
+                                                    value="{{adherent.statuMatrimonialMarie}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">ville</p>
+                                                <input type="text" class="form-control" value="{{adherent.ville}}">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <p class="label-input">Date de naissance</p>
+                                                <input type="text" class="form-control"
+                                                    value="{{formatDate(adherent.dateNaissance.seconds)}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <p class="label-input">Date d'enregistrement</p>
+                                                <input type="text" class="form-control"
+                                                    value="{{formatDate(adherent.createdDate.seconds)}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <p class="label-input">Date de fin de validite</p>
+                                                <input type="text" class="form-control"
+                                                    value="{{formatDate(adherent.datFinvalidite.seconds)}}">
                                             </div>
                                         </div>
                                     </div>
@@ -184,7 +270,8 @@
                     <div class="col-md-4">
                         <div class="card card-profile">
                             <div class="card-avatar">
-                                <img class="img" src="{{adherent.imageUrl}}" />
+                                <img *ngIf="adherent.imageUrl!==''" class="img" src="{{adherent.imageUrl}}" />
+                                <img *ngIf="adherent.imageUrl===''" class="img" src="{{defaulImage}}" />
                             </div>
                             <div class="card-body">
                                 <h6 class="card-category text-gray">{{adherent.profil}}</h6>

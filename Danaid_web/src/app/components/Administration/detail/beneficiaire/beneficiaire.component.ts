@@ -11,9 +11,15 @@ import { Beneficiaire } from 'src/app/entities/beneficiaire/beneficiaire.model';
 export class BeneficiaireComponent implements OnInit {
 
   beneficiaireList: Beneficiaire[] = []
+  defaulImage = 'https://firebasestorage.googleapis.com/v0/b/danaidapp.appspot.com/o/user-profil.png?alt=media&token=10fc4c1d-7f22-48b8-897d-e5a973721628';
+
   constructor(private route: ActivatedRoute, private adherentService: AdherentService) { }
 
   ngOnInit() {
+    this.loadData();
+  }
+
+  loadData() {
     this.route.paramMap.subscribe(params => {
       this.adherentService.getAllBeneficiaresOfAdherent(params.get('adherent_id')).subscribe(data => {
         this.beneficiaireList = data.map(e => {
@@ -22,7 +28,6 @@ export class BeneficiaireComponent implements OnInit {
             ...e.payload.doc.data()
           } as Beneficiaire;
         });
-        console.log(this.beneficiaireList)
       });
     });
   }

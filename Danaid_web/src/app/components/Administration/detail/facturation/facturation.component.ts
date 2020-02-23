@@ -14,6 +14,9 @@ export class FacturationComponent implements OnInit {
   constructor(private route: ActivatedRoute, private adherentService: AdherentService) { }
 
   ngOnInit() {
+    this.loadData();
+  }
+  loadData() {
     this.route.paramMap.subscribe(params => {
       this.adherentService.getAllFacturationsOfAdherent(params.get('adherent_id')).subscribe(data => {
         this.facturationList = data.map(e => {
@@ -22,10 +25,7 @@ export class FacturationComponent implements OnInit {
             ...e.payload.doc.data()
           } as Facturation;
         });
-        console.log('Facturations')
-        console.log(this.facturationList)
       });
     });
   }
-
 }

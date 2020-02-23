@@ -12,6 +12,11 @@ import { Router } from '@angular/router';
 export class AdherentComponent implements OnInit {
 
   adherentList: Adherent[] = [];
+
+  profileOption = 'profile';
+  beneficiaireOption = 'beneficiaire'
+  facturationOption = 'facturation'
+
   defaulImage = 'https://firebasestorage.googleapis.com/v0/b/danaidapp.appspot.com/o/user-profil.png?alt=media&token=10fc4c1d-7f22-48b8-897d-e5a973721628';
   constructor(private adherentService: AdherentService, private router: Router) { }
   validatingForm: FormGroup;
