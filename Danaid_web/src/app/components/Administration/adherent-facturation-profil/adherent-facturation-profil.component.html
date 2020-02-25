@@ -1,0 +1,10 @@
+<div class="card card-profile">
+    <div class="card-avatar">
+        <img *ngIf="adherent.imageUrl!==''" class="img" src="{{adherent.imageUrl}}" />
+        <img *ngIf="adherent.imageUrl===''" class="img" src="{{defaulImage}}" />
+    </div>
+    <div class="card-body">
+        <h6 class="card-category text-gray">{{adherent.profil}}</h6>
+        <h4 class="card-title">{{adherent.nomFamille}}</h4>
+    </div>
+</div>

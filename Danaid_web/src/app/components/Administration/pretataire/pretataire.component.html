@@ -1,1 +1,62 @@
-<p>pretataire works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-primary row">
+                    <div class=col-9>
+                        <h4 class="card-title ">Liste des Prestataires</h4>
+                        <p class="card-category"> Total : {{prestataireList.length}}</p>
+                    </div>
+                    <div class="col-3 row">
+                        <a href="JavaScript:Void(0)" class="col-4">
+                            <i class="material-icons icone-head" title="actualiser">refresh</i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                                <th>No</th>
+                                <th>Etablissement</th>
+                                <th>Categorie</th>
+                                <th>Secteur</th>
+                                <th>Ville</th>
+                                <th>Personne a contacter</th>
+                                <th>Fontion</th>
+                                <th>email</th>
+                                <th>Telephones</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let prestataire of prestataireList;let index = index;">
+                                    <td>{{index + 1}}</td>
+                                    <td>
+                                        <div>
+                                            <img *ngIf="prestataire.imageUrl!==''" src="{{prestataire.imageUrl}}"
+                                                class="rounded float-left profile-image mr-2" alt="">
+
+                                            <img *ngIf="prestataire.imageUrl===''" src="{{defaulImage}}"
+                                                class="rounded float-left profile-image mr-2" alt="">
+                                            <p>{{prestataire.nomEtablissement}}</p>
+                                        </div>
+                                    </td>
+                                    <td>{{prestataire.categorieEtablissement}}</td>
+                                    <td>{{prestataire.sector}}</td>
+                                    <td>{{prestataire.villeEtab}}</td>
+                                    <td>{{prestataire.nomCompletPContact}}</td>
+                                    <td>{{prestataire.fonctionPcontact}}</td>
+                                    <td>{{prestataire.emailPContact}}</td>
+                                    <td>
+                                        <p *ngFor="let phone of prestataire.phoneList;">
+                                            {{phone.number}}
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

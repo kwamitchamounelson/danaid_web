@@ -2,6 +2,7 @@ import { Constant } from '../Constant';
 import { Adherent } from 'src/app/entities/adherent.model';
 import { Injectable } from '@angular/core';
 import { FirestoreService } from '../firestore-util/firestore.service';
+import { Medecin } from 'src/app/entities/medecin/medecin.model';
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +44,15 @@ export class AdherentDAO {
     return this.firestoreService.updateEntityDocument(Constant.ADHERENTS, adherent, '' + phoneNumber);
   }
 
+  updateMedecinDocument(medecin: Medecin) {
+    const phoneNumber = medecin.id;
+    return this.firestoreService.updateEntityDocument(Constant.MEDECINS, medecin, '' + phoneNumber);
+  }
+
+  deleteMedecinDocument(medecinPhoneNumber: string) {
+    return this.firestoreService.deleteEntityDocument(Constant.MEDECINS, medecinPhoneNumber);
+  }
+
   deleteAdherentDocument(adherentPhoneNumber: string) {
     return this.firestoreService.deleteEntityDocument(Constant.ADHERENTS, adherentPhoneNumber);
   }
@@ -53,5 +63,17 @@ export class AdherentDAO {
 
   getFacturationsDocumentForAdherent(AdherentId: string) {
     return this.firestoreService.getEntitiesDocumentsByFilter(Constant.FACTURATIONS_ADHERENT, 'idAdherent', AdherentId);
+  }
+
+  getMedecinDocumentByPhoneNumber(phoneNumber: string) {
+    return this.firestoreService.getEntityDocument(Constant.MEDECINS, phoneNumber);
+  }
+
+  getMedecinsDocuments() {
+    return this.firestoreService.getEntitiesDocuments(Constant.MEDECINS);
+  }
+
+  getPrestatairesDocuments() {
+    return this.firestoreService.getEntitiesDocuments(Constant.PRESTATAIRES);
   }
 }

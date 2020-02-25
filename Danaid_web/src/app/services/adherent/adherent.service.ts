@@ -2,11 +2,23 @@ import { Injectable } from '@angular/core';
 import { AdherentInterface } from './AdherentInterface';
 import { AdherentDAO } from './AdherentDAO';
 import { Adherent } from 'src/app/entities/adherent.model';
+import { Medecin } from 'src/app/entities/medecin/medecin.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdherentService implements AdherentInterface {
+
+  getPrestataires() {
+    return this.adherentDao.getPrestatairesDocuments();
+  }
+
+  getAllMedecins() {
+    return this.adherentDao.getMedecinsDocuments();
+  }
+  getMedecinByPhoneNumber(medecinPhoneNumber: string) {
+    return this.adherentDao.getMedecinDocumentByPhoneNumber(medecinPhoneNumber);
+  }
 
   getAllSponsors() {
     return this.adherentDao.getSponsorsDocuments();
@@ -39,8 +51,16 @@ export class AdherentService implements AdherentInterface {
     return this.adherentDao.updateAdherentDocument(adherent);
   }
 
+  updateMedecin(medecin: Medecin) {
+    return this.adherentDao.updateMedecinDocument(medecin);
+  }
+
   deleteAdherent(adherentPhoneNumber: string) {
     return this.adherentDao.deleteAdherentDocument(adherentPhoneNumber);
+  }
+
+  deleteMedecin(medecinPhoneNumber: string) {
+    return this.adherentDao.deleteMedecinDocument(medecinPhoneNumber);
   }
 
   constructor(private adherentDao: AdherentDAO) { }

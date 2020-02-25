@@ -1,0 +1,263 @@
+<div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="adherent.imageUrl">
+        <div class="logo">
+            <a href="JavaScript:Void(0)" class="simple-text logo-normal" [routerLink]="['/dashboad']">
+                <i class="material-icons">keyboard_backspace</i>
+            </a>
+        </div>
+        <div class="sidebar-wrapper">
+            <ul class="nav">
+                <li class="{{setStyle(profileOption)}}" (click)="updateUI(profileOption)">
+                    <a class="nav-link" href="JavaScript:Void(0)">
+                        <i class="material-icons">details</i>
+                        <p>Profile</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-panel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+            <div class="container-fluid">
+                <div class="navbar-wrapper">
+                    <p>
+                        <strong class="title-ad-detail">
+                            {{medecin.nomDefamille}} {{medecin.prenom}}
+                        </strong>
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <!-- End Navbar -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8" [ngSwitch]=option>
+                        <!-- <app-facturation *ngSwitchCase=facturationOption></app-facturation>
+                        <app-beneficiaire *ngSwitchCase=beneficiaireOption></app-beneficiaire> -->
+                        <div class="card" *ngSwitchCase=profileOption>
+                            <div class="card-header card-header-primary">
+                                <h4 class="card-title">Modifier le profile</h4>
+                                <p class="card-category">Telephone principal : {{medecin.id}}</p>
+                            </div>
+                            <div class="card-body">
+
+                                <h5><strong class="text-center mx-3">Informations</strong></h5>
+                                <form [formGroup]="profileForm">
+
+                                    <!--INFO USER PHONE NUMBERS-->
+                                    <div class="row mb-3 mx-3">
+                                        <strong>Téléphone(s) : </strong>
+                                        <div class="mx-3">
+                                            <mat-chip-list *ngFor="let phone of medecin.phoneList">
+                                                <mat-chip>{{phone.number}} ({{phone.operator}})</mat-chip>
+                                            </mat-chip-list>
+                                        </div>
+                                    </div>
+                                    <!--INFO USER PHONE NUMBERS-->
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Nom de famille</p>
+                                                <input type="text" class="form-control" formControlName="nom">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Prenom</p>
+                                                <input type="text" class="form-control" formControlName="prenom">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Categorie Ets</p>
+                                                <input type="text" class="form-control" formControlName="categorie">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Adresse email</p>
+                                                <input type="text" class="form-control" formControlName="email">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Commune hopitale</p>
+                                                <input type="text" class="form-control" formControlName="commune">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Domaine</p>
+                                                <input type="text" class="form-control" formControlName="domaine">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Nom Ets</p>
+                                                <input type="text" class="form-control" formControlName="etablissement">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Nom personne a contacter</p>
+                                                <input type="text" class="form-control"
+                                                    formControlName="personeContact">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Tel personne a contacter</p>
+                                                <input type="text" class="form-control"
+                                                    formControlName="personeContactPhone">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Service</p>
+                                                <input type="text" class="form-control" formControlName="service">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Sexe</p>
+                                                <input type="text" class="form-control" formControlName="sexe">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Specialité</p>
+                                                <input type="text" class="form-control" formControlName="specialite">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Ville</p>
+                                                <input type="text" class="form-control" formControlName="ville">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Certificat enr. ordre</p>
+                                                <input type="text" class="form-control" formControlName="certificat">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-primary pull-left mb-3">Enregistrer les
+                                        modifications
+                                    </button>
+                                    <div class="clearfix"></div>
+
+                                    <!--DOC ADHERENT-->
+                                    <div class="row mb-3">
+                                        <h5><strong class="text-center mx-3">Liste des documents officiels</strong></h5>
+
+                                        <div class="card-deck mx-3">
+
+                                            <!-- Card -->
+                                            <mdb-card class="mx-2">
+                                                <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+                                                    <!-- Card img -->
+                                                    <img *ngIf="medecin.urlScaneCNI!==''" class="image_doc"
+                                                        src="{{medecin.urlScaneCNI}}" />
+                                                    <img *ngIf="medecin.urlScaneCNI===''" class="image_doc"
+                                                        src="{{noImageDoc}}" />
+
+                                                    <a *ngIf="medecin.urlScaneCNI!==''" href="{{medecin.urlScaneCNI}}">
+                                                        <div class="mask"></div>
+                                                    </a>
+                                                </div>
+                                                <!--Card content-->
+                                                <mdb-card-body>
+                                                    <!--Title-->
+                                                    <mdb-card-title>
+                                                        <h6>CNI</h6>
+                                                    </mdb-card-title>
+                                                </mdb-card-body>
+                                            </mdb-card>
+                                            <!-- Card -->
+
+                                            <!-- Card -->
+                                            <mdb-card class="mx-2">
+                                                <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+                                                    <!-- Card img -->
+                                                    <img *ngIf="medecin.urlScaneCertificatEnregDordr!==''"
+                                                        class="image_doc"
+                                                        src="{{medecin.urlScaneCertificatEnregDordr}}" />
+                                                    <img *ngIf="medecin.urlScaneCertificatEnregDordr===''"
+                                                        class="image_doc" src="{{noImageDoc}}" />
+
+                                                    <a *ngIf="medecin.urlScaneCertificatEnregDordr!==''"
+                                                        href="{{medecin.urlScaneCertificatEnregDordr}}">
+                                                        <div class="mask"></div>
+                                                    </a>
+                                                </div>
+                                                <!--Card content-->
+                                                <mdb-card-body>
+                                                    <!--Title-->
+                                                    <mdb-card-title>
+                                                        <h6>Certificat d'enr. ordre</h6>
+                                                    </mdb-card-title>
+                                                </mdb-card-body>
+                                            </mdb-card>
+                                            <!-- Card -->
+
+                                        </div>
+                                    </div>
+                                    <!--DOC ADHERENT-->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-profile">
+                            <div class="card-avatar">
+                                <img *ngIf="medecin.urlImage!==''" class="img" src="{{medecin.urlImage}}" />
+                                <img *ngIf="medecin.urlImage===''" class="img" src="{{defaulImage}}" />
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-category text-gray">{{medecin.profil}}</h6>
+                                <h4 class="card-title">{{medecin.nomDefamille}}</h4>
+                                <p class="card-description">{{generateDescription()}}</p>
+
+                                <a *ngIf="medecin.profilEnanble" href="JavaScript:Void(0)"
+                                    class="btn btn-danger btn-round" (click)="enableOrdisacleMedecin(medecin,2)">
+                                    Desactiver
+                                </a>
+                                <a *ngIf="!medecin.profilEnanble" href="JavaScript:Void(0)"
+                                    class="btn btn-primary btn-round" (click)="enableOrdisacleMedecin(medecin,1)">
+                                    Activer
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+
+        </footer>
+    </div>
+</div>

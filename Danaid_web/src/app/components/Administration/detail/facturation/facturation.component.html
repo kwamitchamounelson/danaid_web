@@ -25,6 +25,7 @@
                         <th>Date debut cou.</th>
                         <th>Date Fin cou.</th>
                         <th>Date Paiement</th>
+                        <th>Operations</th>
                     </thead>
                     <tbody>
                         <tr *ngFor="let facturation of facturationList;let index = index;">
@@ -43,6 +44,16 @@
                             </td>
                             <td *ngIf="!facturation.dateReglementDuPaiement">
                                 //
+                            </td>
+                            <td class="row">
+
+                                <!--TO UPDATE FACURATION-->
+                                <a class="col-2" href="JavaScript:Void(0)"
+                                    [routerLink]="['/update_facturation',facturation.idAdherent]">
+                                    <i class="fas fa-edit icone" title="Modifier"></i>
+                                </a>
+                                <!--TO UPDATE FACURATION-->
+
                             </td>
                         </tr>
                     </tbody>

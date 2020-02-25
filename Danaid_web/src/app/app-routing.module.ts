@@ -6,6 +6,8 @@ import { AuthGuardComponent } from './components/Authentification/auth-guard/aut
 import { BeneficiaireComponent } from './components/Administration/detail/beneficiaire/beneficiaire.component';
 import { FacturationComponent } from './components/Administration/detail/facturation/facturation.component';
 import { DetailAdherentComponent } from './components/Administration/detail-adherent/detail-adherent.component';
+import { MedecinDetailComponent } from './components/Administration/medecin-detail/medecin-detail.component';
+import { UpdateFacturationComponent } from './components/Administration/update-facturation/update-facturation.component';
 
 
 const routes: Routes = [
@@ -15,6 +17,8 @@ const routes: Routes = [
   { path: 'beneficiaire/:adherent_id', component: BeneficiaireComponent },
   { path: 'facturation_adherent/:adherent_id', component: FacturationComponent },
   { path: 'detail_adherent/:adherent_id/:option', component: DetailAdherentComponent },
+  { path: 'detail_medecin/:medecin_id/:option', component: MedecinDetailComponent },
+  { path: 'update_facturation/:id', component: UpdateFacturationComponent },
   { path: '', redirectTo: '/auth-guard', pathMatch: 'full' }
 ];
 
