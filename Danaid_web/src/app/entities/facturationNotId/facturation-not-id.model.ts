@@ -1,4 +1,4 @@
-export class Facturation {
+export class FacturationNotId {
     categoriePaiement: string = "";
     dateDebutCouvertureAdherent: Date = null;
     dateFinCouvertureAdherent: Date = null;
@@ -12,5 +12,4 @@ export class Facturation {
     numeroRecu: string = "";
     paiementEffactuerViaInscription: boolean = false;
     statut: string = "";
-    id: string = "";
 }

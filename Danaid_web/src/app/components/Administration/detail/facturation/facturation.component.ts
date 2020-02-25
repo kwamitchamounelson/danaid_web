@@ -19,11 +19,14 @@ export class FacturationComponent implements OnInit {
   loadData() {
     this.route.paramMap.subscribe(params => {
       this.adherentService.getAllFacturationsOfAdherent(params.get('adherent_id')).subscribe(data => {
+        let fact: Facturation;
         this.facturationList = data.map(e => {
-          return {
+          fact = ({
             id: e.payload.doc.id,
             ...e.payload.doc.data()
-          } as Facturation;
+          } as Facturation);
+          fact.id = e.payload.doc.id;
+          return fact;
         });
       });
     });

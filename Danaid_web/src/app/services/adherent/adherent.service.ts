@@ -3,6 +3,8 @@ import { AdherentInterface } from './AdherentInterface';
 import { AdherentDAO } from './AdherentDAO';
 import { Adherent } from 'src/app/entities/adherent.model';
 import { Medecin } from 'src/app/entities/medecin/medecin.model';
+import { Facturation } from 'src/app/entities/facturation/facturation.model';
+import { FacturationNotId } from 'src/app/entities/facturationNotId/facturation-not-id.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +18,13 @@ export class AdherentService implements AdherentInterface {
   getAllMedecins() {
     return this.adherentDao.getMedecinsDocuments();
   }
+
   getMedecinByPhoneNumber(medecinPhoneNumber: string) {
     return this.adherentDao.getMedecinDocumentByPhoneNumber(medecinPhoneNumber);
+  }
+
+  getFacturationById(facturationId: string) {
+    return this.adherentDao.getFacturationById(facturationId);
   }
 
   getAllSponsors() {
@@ -53,6 +60,10 @@ export class AdherentService implements AdherentInterface {
 
   updateMedecin(medecin: Medecin) {
     return this.adherentDao.updateMedecinDocument(medecin);
+  }
+
+  updateFacturation(facturation: FacturationNotId, id: string) {
+    return this.adherentDao.updateFacturationDocument(facturation, id);
   }
 
   deleteAdherent(adherentPhoneNumber: string) {

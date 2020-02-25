@@ -53,6 +53,17 @@ export class FirestoreService {
   }
 
   /**
+   * Updates entity document
+   * @param collectionName 
+   * @param entity 
+   * @param id 
+   * @returns  
+   */
+  updateEntityDocumentMethodeSet(collectionName: string, entity: any, id: string) {
+    return this.firestore.doc(collectionName + '/' + id).set(entity);
+  }
+
+  /**
    * Deletes entity document
    * @param collectionName 
    * @param id 

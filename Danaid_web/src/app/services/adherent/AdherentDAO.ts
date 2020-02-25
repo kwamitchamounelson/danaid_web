@@ -3,6 +3,8 @@ import { Adherent } from 'src/app/entities/adherent.model';
 import { Injectable } from '@angular/core';
 import { FirestoreService } from '../firestore-util/firestore.service';
 import { Medecin } from 'src/app/entities/medecin/medecin.model';
+import { Facturation } from 'src/app/entities/facturation/facturation.model';
+import { FacturationNotId } from 'src/app/entities/facturationNotId/facturation-not-id.model';
 
 @Injectable({
   providedIn: 'root'
@@ -49,6 +51,10 @@ export class AdherentDAO {
     return this.firestoreService.updateEntityDocument(Constant.MEDECINS, medecin, '' + phoneNumber);
   }
 
+  updateFacturationDocument(facturation: FacturationNotId, id: string) {
+    return this.firestoreService.updateEntityDocumentMethodeSet(Constant.FACTURATIONS_ADHERENT, facturation, '' + id);
+  }
+
   deleteMedecinDocument(medecinPhoneNumber: string) {
     return this.firestoreService.deleteEntityDocument(Constant.MEDECINS, medecinPhoneNumber);
   }
@@ -67,6 +73,10 @@ export class AdherentDAO {
 
   getMedecinDocumentByPhoneNumber(phoneNumber: string) {
     return this.firestoreService.getEntityDocument(Constant.MEDECINS, phoneNumber);
+  }
+
+  getFacturationById(facturationId: string) {
+    return this.firestoreService.getEntityDocument(Constant.FACTURATIONS_ADHERENT, facturationId);
   }
 
   getMedecinsDocuments() {

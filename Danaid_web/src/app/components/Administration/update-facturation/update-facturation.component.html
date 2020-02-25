@@ -14,7 +14,7 @@
                         <div class="card">
                             <div class="card-header card-header-primary">
                                 <h4 class="card-title">Modifier les information de la Facturation</h4>
-                                <p class="card-category">Numero de l'adherent : {{facturation.idAdherent}}</p>
+                                <p class="card-category">Id de la Facturation : {{id}}</p>
                             </div>
                             <div class="card-body">
 
@@ -23,15 +23,16 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <p class="label-input">Categorie</p>
+                                                <p class="label-input">Categorie (COTISATION_TRIMESTRIELLE,
+                                                    REMBOURSEMENT_DES_PREts_SANTE)</p>
                                                 <input type="text" class="form-control"
-                                                    formControlName="categoriePaiement">
+                                                    value="{{facturation.categoriePaiement}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <p class="label-input">Date de debut de couverture</p>
-                                                <input type="text" class="form-control"
+                                                <input type="date" class="form-control"
                                                     formControlName="dateDebutCouvertureAdherent">
                                             </div>
                                         </div>
@@ -41,14 +42,14 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <p class="label-input">Date de fin de couverture</p>
-                                                <input type="text" class="form-control"
+                                                <input type="date" class="form-control"
                                                     formControlName="dateFinCouvertureAdherent">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <p class="label-input">Date de reglement</p>
-                                                <input type="text" class="form-control"
+                                                <input type="date" class="form-control"
                                                     formControlName="dateReglementDuPaiement">
                                             </div>
                                         </div>
@@ -57,7 +58,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <p class="label-input">Etat de validite</p>
+                                                <p class="label-input">Etat de validite (true, false)</p>
                                                 <input type="text" class="form-control" formControlName="etatValider">
                                             </div>
                                         </div>
@@ -73,13 +74,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <p class="label-input">Montant</p>
-                                                <input type="text" class="form-control" formControlName="montant">
+                                                <input type="number" class="form-control" formControlName="montant">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <p class="label-input">Nomber de personnes supplementaires</p>
-                                                <input type="text" class="form-control"
+                                                <input type="number" class="form-control"
                                                     formControlName="nbPersonneSupplement">
                                             </div>
                                         </div>
@@ -104,14 +105,14 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <p class="label-input">Paiement a l'inscription?</p>
+                                                <p class="label-input">Paiement a l'inscription? (true, false)</p>
                                                 <input type="text" class="form-control"
                                                     formControlName="paiementEffactuerViaInscription">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <p class="label-input">Status</p>
+                                                <p class="label-input">Status (STATUTENRETARD, STATUTPAYER)</p>
                                                 <input type="text" class="form-control" formControlName="statut">
                                             </div>
                                         </div>
