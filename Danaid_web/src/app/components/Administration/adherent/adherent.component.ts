@@ -15,7 +15,8 @@ export class AdherentComponent implements OnInit {
 
   profileOption = 'profile';
   beneficiaireOption = 'beneficiaire'
-  facturationOption = 'facturation'
+  facturationOption = 'facturation';
+  headElements = ['No', 'Matricule', 'Nom', 'Commune', 'Adresse', 'Telephone principal', 'Operations'];
 
   defaulImage = 'https://firebasestorage.googleapis.com/v0/b/danaidapp.appspot.com/o/user-profil.png?alt=media&token=10fc4c1d-7f22-48b8-897d-e5a973721628';
   constructor(private adherentService: AdherentService, private router: Router) { }
