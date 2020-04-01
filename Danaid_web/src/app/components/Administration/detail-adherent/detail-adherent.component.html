@@ -167,21 +167,28 @@
                                             <div class="form-group">
                                                 <p class="label-input">Date de naissance</p>
                                                 <input type="text" class="form-control"
-                                                    value="{{adherent.dateNaissance}}">
+                                                    value="{{adherent.dateNaissance.seconds * 1000 | date:'dd-MM-yyyy' }}">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <p class="label-input">Date d'enregistrement</p>
+                                                <mat-form-field>
+                                                    <mat-label>Date d'enregistrement</mat-label>
+                                                    <input matInput [matDatepicker]="picker">
+                                                    <mat-datepicker-toggle matSuffix [for]="picker">
+                                                    </mat-datepicker-toggle>
+                                                    <mat-datepicker #picker></mat-datepicker>
+                                                </mat-form-field>
+                                                <!-- <p class="label-input">Date d'enregistrement</p>
                                                 <input type="text" class="form-control"
-                                                    value="{{adherent.createdDate}}">
+                                                    value="{{adherent.createdDate.seconds * 1000 | date:'dd-MM-yyyy' }}"> -->
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <p class="label-input">Date de fin de validite</p>
                                                 <input type="text" class="form-control"
-                                                    value="{{adherent.datFinvalidite}}">
+                                                    value="{{adherent.datFinvalidite.seconds * 1000 | date:'dd-MM-yyyy' }}">
                                             </div>
                                         </div>
                                     </div>

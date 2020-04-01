@@ -4,7 +4,7 @@ export class Adherent {
   acteMariageName: string = "";
   autrePieceName: string = "";
   cniName: string = "";
-  datFinvalidite: Date = null;
+  datFinvalidite: any = null;
   emailAdress: string = "";
   genre: string = "";
   id: string = "";
@@ -16,8 +16,8 @@ export class Adherent {
   nomFamille: string = "";
   matricule: string = "";
   adresse: string = "";
-  createdDate: Date = null;
-  dateNaissance: Date = null;
+  createdDate: any = null;
+  dateNaissance: any = null;
   imageUrl: string = "";
   isRecptionPaiementMobile: boolean = false;
   nombreEnfant: number = 0;

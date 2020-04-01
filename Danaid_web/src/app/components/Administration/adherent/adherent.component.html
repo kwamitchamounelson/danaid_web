@@ -34,7 +34,7 @@
                   <th [mdbTableSort]="adherentList" sortBy="matricule">Matricule</th>
                   <th [mdbTableSort]="adherentList" sortBy="nomFamille">Nom</th>
                   <th [mdbTableSort]="adherentList" sortBy="ville">Commune</th>
-                  <th [mdbTableSort]="adherentList" sortBy="adresse">Adresse</th>
+                  <th [mdbTableSort]="adherentList" sortBy="createdDate">Date En.</th>
                   <th [mdbTableSort]="adherentList" sortBy="id">Telephone principal</th>
                   <th [mdbTableSort]="adherentList" sortBy="profilEnabled">Operations</th>
                 </tr>
@@ -54,7 +54,7 @@
                     </div>
                   </td>
                   <td>{{adherent.ville}}</td>
-                  <td>{{adherent.adresse}}</td>
+                  <td>{{adherent.createdDate.seconds * 1000 | date:'dd-MM-yyyy' }}</td>
                   <td>{{adherent.id}}</td>
                   <td class="row">
 

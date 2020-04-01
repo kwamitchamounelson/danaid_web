@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AdherentService } from 'src/app/services/adherent/adherent.service';
 import { Adherent } from 'src/app/entities/adherent.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MdbTableDirective } from 'angular-bootstrap-md';
 
 @Component({
   selector: 'app-adherent',
@@ -12,6 +13,10 @@ import { Router } from '@angular/router';
 export class AdherentComponent implements OnInit {
 
   adherentList: Adherent[] = [];
+
+  @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
+  searchText: string = '';
+  previous: string;
 
   profileOption = 'profile';
   beneficiaireOption = 'beneficiaire'

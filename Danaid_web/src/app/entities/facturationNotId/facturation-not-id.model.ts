@@ -1,8 +1,8 @@
 export class FacturationNotId {
     categoriePaiement: string = "";
-    dateDebutCouvertureAdherent: Date = null;
-    dateFinCouvertureAdherent: Date = null;
-    dateReglementDuPaiement: Date = null;
+    dateDebutCouvertureAdherent: any = null;
+    dateFinCouvertureAdherent: any = null;
+    dateReglementDuPaiement: any = null;
     etatValider: boolean = false;
     idAdherent: string = "";
     intitule: string = "";

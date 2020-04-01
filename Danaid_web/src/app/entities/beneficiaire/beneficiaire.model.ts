@@ -3,9 +3,9 @@ export class Beneficiaire {
     adherentId: string = "";
     autrePieceName: string = "";
     cniName: string = "";
-    createdDate: Date = null;
-    dateFinValidite: Date = null;
-    dateNaissance: Date = null
+    createdDate: any = null;
+    dateFinValidite: any = null;
+    dateNaissance: any = null
     enabled: boolean = false;
     genre: string = "";
     ifVivreMemeDemeure: boolean = false;

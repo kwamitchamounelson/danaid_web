@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 // Angular Material
+import {MatNativeDateModule} from '@angular/material';
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import { MatCheckboxModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
@@ -129,7 +131,8 @@ const config = {
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage
 
-
+    MatNativeDateModule, 
+    MatMomentDateModule,
     MatCheckboxModule,
     MatCheckboxModule,
     MatButtonModule,

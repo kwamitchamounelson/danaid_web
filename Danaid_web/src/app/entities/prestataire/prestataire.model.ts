@@ -11,7 +11,7 @@ export class Prestataire {
     fonctionPcontact: string = "";
     imageUrl: string = "";
     sector: string = "";
-    createdDate: Date;
+    createdDate: any;
     urlScaneCNI: string = "";
     urlScaneCertificatEnregDordr: string = "";
     urlDautreJustificatif: string = "";
