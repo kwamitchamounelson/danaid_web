@@ -13,7 +13,7 @@ import { UpdateFacturationComponent } from './components/Administration/update-f
 const routes: Routes = [
   { path: 'auth-guard', component: AuthGuardComponent },
   { path: 'authentification', component: SignInUserComponent },
-  { path: 'dashboad', component: MainComponent },
+  { path: 'dashboad/:page_id', component: MainComponent },
   { path: 'beneficiaire/:adherent_id', component: BeneficiaireComponent },
   { path: 'facturation_adherent/:adherent_id', component: FacturationComponent },
   { path: 'detail_adherent/:adherent_id/:option', component: DetailAdherentComponent },

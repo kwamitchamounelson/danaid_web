@@ -24,7 +24,7 @@ export class AuthGuardComponent implements OnInit {
         if (user) {
           // connexion du user
           console.log(user);
-          this.router.navigate(['/dashboad']);
+          this.router.navigate(['/dashboad',0]);
         } else {
           // echec de connexion
           this.router.navigate(['/authentification']);

@@ -37,8 +37,12 @@ export class FirestoreService {
    * @param entity 
    * @returns  
    */
-  addEntityDocument(collectionName: string, entity: any) {
-    return this.firestore.collection(collectionName).add(entity);
+  addEntityDocument(collectionName: string, entity: any, id: string) {
+    if (id.length === 0) {
+      return this.firestore.collection(collectionName).add({ ...entity });
+    } else {
+      return this.firestore.collection(collectionName).doc(id).set({ ...entity });
+    }
   }
 
   /**
@@ -49,7 +53,7 @@ export class FirestoreService {
    * @returns  
    */
   updateEntityDocument(collectionName: string, entity: any, id: string) {
-    return this.firestore.doc(collectionName + '/' + id).update(entity);
+    return this.firestore.doc(collectionName + '/' + id).update({ ...entity });
   }
 
   /**
@@ -60,7 +64,7 @@ export class FirestoreService {
    * @returns  
    */
   updateEntityDocumentMethodeSet(collectionName: string, entity: any, id: string) {
-    return this.firestore.doc(collectionName + '/' + id).set(entity);
+    return this.firestore.doc(collectionName + '/' + id).set({ ...entity });
   }
 
   /**

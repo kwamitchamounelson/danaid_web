@@ -12,6 +12,12 @@
     </div>
     <div class="sidebar-wrapper">
       <ul class="nav">
+        <li class={{setStyle(0)}} (click)="loadData(0)">
+          <a class="nav-link" href="JavaScript:Void(0)">
+            <i class="fa fa-user-md"></i>
+            <p>Welcome</p>
+          </a>
+        </li>
         <li class={{setStyle(1)}} (click)="loadData(1)">
           <a class="nav-link" href="JavaScript:Void(0)">
             <i class="material-icons">dashboard</i>
@@ -54,42 +60,6 @@
             <p>Facturations</p>
           </a>
         </li>
-        <!-- <li class={{setStyle(5)}} (click)="loadData(5)">
-          <a class="nav-link" href="JavaScript:Void(0)">
-            <i class="material-icons">transfer_within_a_station</i>
-            <p>Profils mis à Jour</p>
-          </a>
-        </li>
-        <li class={{setStyle(6)}} (click)="loadData(6)">
-          <a class="nav-link" href="JavaScript:Void(0)">
-            <i class="material-icons">people_alt</i>
-            <p>Ajouts de personnes à charge</p>
-          </a>
-        </li>
-        <li class={{setStyle(7)}} (click)="loadData(7)">
-          <a class="nav-link" href="JavaScript:Void(0)">
-            <i class="fa fa-user-md"></i>
-            <p>Choix ou modification du MDF</p>
-          </a>
-        </li>
-        <li class={{setStyle(8)}} (click)="loadData(8)">
-          <a class="nav-link" href="JavaScript:Void(0)">
-            <i class="material-icons">help</i>
-            <p>Demandes de service</p>
-          </a>
-        </li>
-        <li class={{setStyle(9)}} (click)="loadData(9)">
-          <a class="nav-link" href="JavaScript:Void(0)">
-            <i class="material-icons">done_outline</i>
-            <p>Validation de code</p>
-          </a>
-        </li>
-        <li class={{setStyle(10)}} (click)="loadData(10)">
-          <a class="nav-link" href="JavaScript:Void(0)">
-            <i class="material-icons">assignment_turned_in</i>
-            <p>Validation de documents</p>
-          </a>
-        </li> -->
       </ul>
     </div>
   </div>
@@ -103,6 +73,7 @@
     <div class="content">
       <!-- chargement des contenues -->
       <div [ngSwitch]=num>
+        <app-welcom *ngSwitchCase=0></app-welcom>
         <app-dashboard *ngSwitchCase=1></app-dashboard>
         <app-users-profiles *ngSwitchCase=2></app-users-profiles>
         <app-adherent *ngSwitchCase=3></app-adherent>

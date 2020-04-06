@@ -1,6 +1,7 @@
 import { Telephone } from './telephone.model';
 
 export class Adherent {
+  constructor() { }
   acteMariageName: string = "";
   autrePieceName: string = "";
   cniName: string = "";

@@ -34,15 +34,13 @@ export class AdherentDAO {
   }
 
   addAdherentDocument(adherent: Adherent) {
-    return this.firestoreService.addEntityDocument(Constant.ADHERENTS, adherent);
+    return this.firestoreService.addEntityDocument(Constant.ADHERENTS, adherent, adherent.id);
     // return this.adherentRef.add(adherent);
     // return this.firestore.collection(Constant.ADHERENTS).doc('' + adherent.phoneList[0].number).set(adherent);
   }
 
   updateAdherentDocument(adherent: Adherent) {
     const phoneNumber = adherent.id;
-    console.log('telephone : ' + phoneNumber);
-    // delete adherent.phoneList[0].number;
     return this.firestoreService.updateEntityDocument(Constant.ADHERENTS, adherent, '' + phoneNumber);
   }
 

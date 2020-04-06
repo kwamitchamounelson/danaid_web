@@ -77,7 +77,7 @@ export class AdherentComponent implements OnInit {
 
   // suppression d'un adherent
   deleteAdherent(adherent: Adherent) {
-    this.adherentService.deleteAdherent('' + adherent.id);
+    //this.adherentService.deleteAdherent('' + adherent.id);
   }
 
   // a supprimer
@@ -97,6 +97,8 @@ export class AdherentComponent implements OnInit {
     aderent.protectionLevel = 1;
     aderent.statuMatrimonialMarie = false;
     aderent.urlDocOficiel = 'urlDoc' + ran;
+    aderent.nomFamille = 'a' + ran;
+    aderent.id = '' + ran;
 
     // phone number
     aderent.phoneList = [{

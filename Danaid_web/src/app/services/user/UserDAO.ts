@@ -16,7 +16,7 @@ export class UserDAO {
   }
 
   addUserDocument(user: User) {
-    return this.firestoreService.addEntityDocument(Constant.USERS, user);
+    return this.firestoreService.addEntityDocument(Constant.USERS, user, '' + user.phoneList[0].number);
   }
 
   updateUserDocument(user: User) {

@@ -73,6 +73,7 @@ import { PretataireComponent } from './components/Administration/pretataire/pret
 import { MedecinDetailComponent } from './components/Administration/medecin-detail/medecin-detail.component';
 import { UpdateFacturationComponent } from './components/Administration/update-facturation/update-facturation.component';
 import { AdherentFacturationProfilComponent } from './components/Administration/adherent-facturation-profil/adherent-facturation-profil.component';
+import { WelcomComponent } from './components/Administration/welcom/welcom.component';
 
 // 2. Add your credentials from step 1
 const config = {
@@ -113,7 +114,8 @@ const config = {
     PretataireComponent,
     MedecinDetailComponent,
     UpdateFacturationComponent,
-    AdherentFacturationProfilComponent
+    AdherentFacturationProfilComponent,
+    WelcomComponent
   ],
   imports: [
     BrowserModule,

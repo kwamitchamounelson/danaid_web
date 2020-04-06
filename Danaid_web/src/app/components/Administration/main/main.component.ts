@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseApp } from '@angular/fire';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -10,10 +10,11 @@ import { Router } from '@angular/router';
 export class MainComponent implements OnInit {
 
   titleMenu = 'Danaid';
-  num = 3;
+  num: number;
   constructor(
     private firebase: FirebaseApp,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -26,7 +27,9 @@ export class MainComponent implements OnInit {
         if (user) {
           // connexion du user
           console.log(user);
-          this.loadData(this.num);
+          this.route.paramMap.subscribe(params => {
+            this.num = Number.parseInt(params.get('page_id'))
+          });
         } else {
           // echec de connexion
           this.router.navigate(['/authentification']);
@@ -37,7 +40,7 @@ export class MainComponent implements OnInit {
 
   // fonction qui permet de chager les donner lorsquon selection un element du menu
   loadData(numero: number) {
-    this.num = numero;
+    this.router.navigate(['/dashboad', numero]);
   }
 
   // fonction permettant de changer llelement actif de la dashboard
