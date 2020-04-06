@@ -12,7 +12,7 @@ import { ModalDirective } from 'angular-bootstrap-md';
 })
 export class UsersProfilesComponent implements OnInit {
 
-  @ViewChild('basicModal', { static: false }) basicModal: ModalDirective;
+  @ViewChild('basicModal') basicModal: ModalDirective;
   currenUser: User = new User()
   defaulImage = 'https://firebasestorage.googleapis.com/v0/b/danaidapp.appspot.com/o/user-profil.png?alt=media&token=10fc4c1d-7f22-48b8-897d-e5a973721628';
   defaulProfilePicture = 'https://firebasestorage.googleapis.com/v0/b/danaidapp.appspot.com/o/user-profil.png?alt=media&token=10fc4c1d-7f22-48b8-897d-e5a973721628'
