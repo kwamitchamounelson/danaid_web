@@ -22,8 +22,8 @@ export class AllFacturationComponent implements OnInit {
       this.facturationList = data.map(e => {
         fact = ({
           id: e.payload.doc.id,
-          ...e.payload.doc.data()
-        } as Facturation);
+          ...(e.payload.doc.data() as Facturation)
+        });
         fact.id = e.payload.doc.id;
         return fact;
       });

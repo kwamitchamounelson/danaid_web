@@ -25,8 +25,8 @@ export class BeneficiaireComponent implements OnInit {
         this.beneficiaireList = data.map(e => {
           return {
             id: e.payload.doc.id,
-            ...e.payload.doc.data()
-          } as Beneficiaire;
+            ...(e.payload.doc.data() as Beneficiaire)
+          }
         });
       });
     });

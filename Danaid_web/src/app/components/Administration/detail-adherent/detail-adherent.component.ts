@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Adherent } from 'src/app/entities/adherent.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdherentService } from 'src/app/services/adherent/adherent.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-detail-adherent',
@@ -10,7 +11,7 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./detail-adherent.component.scss']
 })
 export class DetailAdherentComponent implements OnInit {
-  adherent: Adherent;
+  adherent: Adherent = new Adherent();
   //facturationList: Facturation[] = [];
   //beneficiaireList: Beneficiaire[] = [];
 
@@ -23,8 +24,14 @@ export class DetailAdherentComponent implements OnInit {
   option = '';
 
   profileForm: FormGroup
+  toasTime = 3000
 
-  constructor(private route: ActivatedRoute, private adherentService: AdherentService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private adherentService: AdherentService,
+    private toastr: ToastrService,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
     this.initData();
@@ -173,11 +180,19 @@ export class DetailAdherentComponent implements OnInit {
   updateAdherent(adherent: Adherent) {
     this.adherentService.updateAdherent(adherent)
       .then(function () {
-        console.log("Document successfully written!");
+        /* this.toastr.success('Modification effectuée avec succes', 'Success', {
+          timeOut: this.toasTime
+        }); */
       })
       .catch(function (error) {
-        console.error("Error writing document: ", error);
+        /* this.toastr.error('Erreur de modification', 'Error', {
+          timeOut: this.toasTime
+        }); */
       });
+    this.toastr.success('Modification effectuée avec succes', 'Success', {
+      timeOut: this.toasTime
+    });
+    this.router.navigate(['/dashboad', 3]);
   }
 
 

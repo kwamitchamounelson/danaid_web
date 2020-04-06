@@ -20,8 +20,8 @@ export class PretataireComponent implements OnInit {
       this.prestataireList = data.map(e => {
         return {
           id: e.payload.doc.id,
-          ...e.payload.doc.data()
-        } as Prestataire;
+          ...(e.payload.doc.data() as Prestataire)
+        }
       });
     });
   }

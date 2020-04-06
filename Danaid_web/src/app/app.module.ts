@@ -9,10 +9,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 // Angular Material
-import {MatNativeDateModule} from '@angular/material';
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
-import { MatCheckboxModule } from '@angular/material';
-import { MatButtonModule } from '@angular/material';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -74,6 +74,7 @@ import { MedecinDetailComponent } from './components/Administration/medecin-deta
 import { UpdateFacturationComponent } from './components/Administration/update-facturation/update-facturation.component';
 import { AdherentFacturationProfilComponent } from './components/Administration/adherent-facturation-profil/adherent-facturation-profil.component';
 import { WelcomComponent } from './components/Administration/welcom/welcom.component';
+import { ToastrModule } from 'ngx-toastr';
 
 // 2. Add your credentials from step 1
 const config = {
@@ -125,6 +126,7 @@ const config = {
     ReactiveFormsModule,
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
+    ToastrModule.forRoot(),
 
     // Initialize firebase
     AngularFireModule.initializeApp(config),
@@ -133,7 +135,7 @@ const config = {
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage
 
-    MatNativeDateModule, 
+    MatNativeDateModule,
     MatMomentDateModule,
     MatCheckboxModule,
     MatCheckboxModule,

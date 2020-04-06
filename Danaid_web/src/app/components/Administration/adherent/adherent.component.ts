@@ -49,8 +49,8 @@ export class AdherentComponent implements OnInit {
       this.adherentList = data.map(e => {
         return {
           id: e.payload.doc.id,
-          ...e.payload.doc.data()
-        } as Adherent;
+          ...(e.payload.doc.data() as Adherent)
+        }
       });
     });
   }

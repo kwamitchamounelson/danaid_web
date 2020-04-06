@@ -27,8 +27,8 @@ export class MedecinComponent implements OnInit {
       this.medecinList = data.map(e => {
         return {
           id: e.payload.doc.id,
-          ...e.payload.doc.data()
-        } as Medecin;
+          ...(e.payload.doc.data() as Medecin)
+        }
       });
     });
   }

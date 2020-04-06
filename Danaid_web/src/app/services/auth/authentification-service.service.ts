@@ -4,7 +4,8 @@ import { AuthentificationDAO } from './AuthentificationDAO';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthentificationServiceService implements AuthentificationInterface {
+//export class AuthentificationServiceService implements AuthentificationInterface {
+export class AuthentificationServiceService {
   getUserConnected() {
     return this.authDAO.canActivate();
   }

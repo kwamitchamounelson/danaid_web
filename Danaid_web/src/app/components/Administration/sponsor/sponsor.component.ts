@@ -18,8 +18,8 @@ export class SponsorComponent implements OnInit {
       this.sponsorLis = data.map(e => {
         return {
           id: e.payload.doc.id,
-          ...e.payload.doc.data()
-        } as Sponsor;
+          ...(e.payload.doc.data() as Sponsor)
+        }
       });
     });
   }
