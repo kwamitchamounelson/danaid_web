@@ -1,5 +1,5 @@
 export class Telephone {
-  number: number;
+  number: any;
   operator: string;
   receptionPayement: boolean;
 }

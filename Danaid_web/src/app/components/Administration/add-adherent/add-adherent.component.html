@@ -1,0 +1,182 @@
+<div class="wrapper ">
+    <div class="main-panel">
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>
+                                    <strong class="text-center mx-3">Formulaire d'enrgistrement d'un adherent</strong>
+                                </h5>
+                                <form [formGroup]="profileForm">
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Matricule (genéré si ce champ est vide)</p>
+                                                <input type="text" class="form-control" [formControl]="matricule">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Telephone (précédé du code telephonique)</p>
+                                                <input type="text" class="form-control" [formControl]="telephone">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Nom de famille</p>
+                                                <input type="text" class="form-control" [formControl]="nomFamille">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Prenom</p>
+                                                <input type="text" class="form-control" [formControl]="prenom">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Adresse</p>
+                                                <input type="text" class="form-control" [formControl]="adresse">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Adresse email</p>
+                                                <input type="text" class="form-control" [formControl]="emailAdress">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Sexe (M/F)</p>
+                                                <input type="text" class="form-control" [formControl]="genre">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Nombre d'enfants</p>
+                                                <input type="number" class="form-control" [formControl]="nombreEnfant">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Niveau de protection</p>
+                                                <input type="number" class="form-control"
+                                                    [formControl]="protectionLevel">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Region d'origine</p>
+                                                <input type="text" class="form-control" [formControl]="regionDorigione">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Profession</p>
+                                                <input type="text" class="form-control" [formControl]="profession">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Profile</p>
+                                                <input type="text" class="form-control" [formControl]="profil">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">Marié? (true/false)</p>
+                                                <input type="text" class="form-control"
+                                                    [formControl]="statuMatrimonialMarie">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <p class="label-input">ville</p>
+                                                <input type="text" class="form-control" [formControl]="ville">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <mat-form-field>
+                                                    <mat-label>Date de naissance</mat-label>
+                                                    <input matInput [matDatepicker]="picker1"
+                                                        [formControl]="dateNaissance">
+                                                    <mat-datepicker-toggle matSuffix [for]="picker1">
+                                                    </mat-datepicker-toggle>
+                                                    <mat-datepicker #picker1></mat-datepicker>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <mat-form-field>
+                                                    <mat-label>Date d'enregistrement</mat-label>
+                                                    <input matInput [matDatepicker]="picker2"
+                                                        [formControl]="createdDate">
+                                                    <mat-datepicker-toggle matSuffix [for]="picker2">
+                                                    </mat-datepicker-toggle>
+                                                    <mat-datepicker #picker2></mat-datepicker>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <mat-form-field>
+                                                    <mat-label>Date de fin de validité</mat-label>
+                                                    <input matInput [matDatepicker]="picker3"
+                                                        [formControl]="datFinvalidite">
+                                                    <mat-datepicker-toggle matSuffix [for]="picker3">
+                                                    </mat-datepicker-toggle>
+                                                    <mat-datepicker #picker3></mat-datepicker>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-primary pull-left mb-3" (click)="saveAdherent()">Enregistrer
+                                    </button>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+
+        </footer>
+    </div>
+</div>

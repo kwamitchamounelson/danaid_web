@@ -8,11 +8,13 @@ import { FacturationComponent } from './components/Administration/detail/factura
 import { DetailAdherentComponent } from './components/Administration/detail-adherent/detail-adherent.component';
 import { MedecinDetailComponent } from './components/Administration/medecin-detail/medecin-detail.component';
 import { UpdateFacturationComponent } from './components/Administration/update-facturation/update-facturation.component';
+import { AddAdherentComponent } from './components/Administration/add-adherent/add-adherent.component';
 
 
 const routes: Routes = [
   { path: 'auth-guard', component: AuthGuardComponent },
   { path: 'authentification', component: SignInUserComponent },
+  { path: 'add_adherent', component: AddAdherentComponent },
   { path: 'dashboad/:page_id', component: MainComponent },
   { path: 'beneficiaire/:adherent_id', component: BeneficiaireComponent },
   { path: 'facturation_adherent/:adherent_id', component: FacturationComponent },

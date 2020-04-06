@@ -75,6 +75,7 @@ import { UpdateFacturationComponent } from './components/Administration/update-f
 import { AdherentFacturationProfilComponent } from './components/Administration/adherent-facturation-profil/adherent-facturation-profil.component';
 import { WelcomComponent } from './components/Administration/welcom/welcom.component';
 import { ToastrModule } from 'ngx-toastr';
+import { AddAdherentComponent } from './components/Administration/add-adherent/add-adherent.component';
 
 // 2. Add your credentials from step 1
 const config = {
@@ -116,7 +117,8 @@ const config = {
     MedecinDetailComponent,
     UpdateFacturationComponent,
     AdherentFacturationProfilComponent,
-    WelcomComponent
+    WelcomComponent,
+    AddAdherentComponent
   ],
   imports: [
     BrowserModule,
