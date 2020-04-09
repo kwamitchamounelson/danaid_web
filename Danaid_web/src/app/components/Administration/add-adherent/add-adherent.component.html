@@ -12,6 +12,24 @@
                                 <form [formGroup]="profileForm">
 
                                     <div class="row">
+                                        <mat-form-field class="example-chip-list" appearance="outline">
+                                            <mat-label>Telephone(s)...</mat-label>
+                                            <mat-chip-list #chipList aria-label="Fruit selection">
+                                                <mat-chip *ngFor="let phone of phones" [selectable]="selectable"
+                                                    [removable]="removable" (removed)="remove(phone)">
+                                                    {{phone.number}}
+                                                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                                </mat-chip>
+                                                <input class="form-control" [matChipInputFor]="chipList"
+                                                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                                    [matChipInputAddOnBlur]="addOnBlur"
+                                                    (matChipInputTokenEnd)="add($event)">
+                                            </mat-chip-list>
+                                        </mat-form-field>
+
+                                    </div>
+
+                                    <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <p class="label-input">Matricule (genéré si ce champ est vide)</p>
@@ -20,8 +38,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <p class="label-input">Telephone (précédé du code telephonique)</p>
-                                                <input type="text" class="form-control" [formControl]="telephone">
+
                                             </div>
                                         </div>
                                     </div>

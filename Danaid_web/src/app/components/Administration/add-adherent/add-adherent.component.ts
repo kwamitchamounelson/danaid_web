@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Adherent } from 'src/app/entities/adherent.model';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdherentService } from 'src/app/services/adherent/adherent.service';
 import { ToastrService } from 'ngx-toastr';
 import { Telephone } from 'src/app/entities/telephone.model';
+import { MatChipInputEvent } from '@angular/material/chips';
 
 @Component({
   selector: 'app-add-adherent',
@@ -12,6 +14,14 @@ import { Telephone } from 'src/app/entities/telephone.model';
   styleUrls: ['./add-adherent.component.scss']
 })
 export class AddAdherentComponent implements OnInit {
+
+  //for add many phone
+  visible = true;
+  selectable = true;
+  removable = true;
+  addOnBlur = true;
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
+  phones: Telephone[] = [];
 
   profileForm: FormGroup
   toasTime = 3000
@@ -26,10 +36,45 @@ export class AddAdherentComponent implements OnInit {
     this.updateUI();
   }
 
+  //for manage phone number
+  add(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+
+    // Add our fruit
+    if ((value || '').trim()) {
+      var phone = value.trim()
+      if (this.validPhone(phone)) {
+        this.phones.push({
+          number: phone,
+          operator: this.getOperatorOfPhone(phone),
+          receptionPayement: true
+        });
+      } else {
+        this.toastr.error('Numero de telephone incorrect', 'Error', {
+          timeOut: 1000
+        });
+      }
+    }
+
+    // Reset the input value
+    if (input) {
+      input.value = '';
+    }
+  }
+
+  remove(phone: Telephone): void {
+    const index = this.phones.indexOf(phone);
+
+    if (index >= 0) {
+      this.phones.splice(index, 1);
+    }
+  }
+
   updateUI() {
     this.profileForm = new FormGroup({
       matricule: new FormControl(''),
-      telephone: new FormControl(''),
+      //telephone: new FormControl(''),
       nomFamille: new FormControl(''),
       prenom: new FormControl(''),
       adresse: new FormControl(''),
@@ -98,9 +143,9 @@ export class AddAdherentComponent implements OnInit {
   }
 
   saveAdherent() {
-    const phone = this.profileForm.get('telephone').value
+    //const phone = this.profileForm.get('telephone').value
 
-    if (this.validPhone(phone)) {
+    if (this.phones.length !== 0) {
       const aderent = new Adherent()
 
       //date properties
@@ -123,14 +168,14 @@ export class AddAdherentComponent implements OnInit {
       aderent.prenom = this.profileForm.get('prenom').value
       aderent.nomFamille = this.profileForm.get('nomFamille').value
       aderent.matricule = this.generateMatricule(this.profileForm.get('matricule').value)
-      aderent.phoneList = this.construcPhoneListe(phone)
-      aderent.id = phone
+      aderent.phoneList = this.phones
+      aderent.id = '' + this.phones[0].number
 
       aderent.isRecptionPaiementMobile = true
 
       this.addNewAdherent(aderent)
     } else {
-      this.toastr.error('Numero de telephone incorrect', 'Error', {
+      this.toastr.error('Veuillez entrer le(s) numero(s) de telephone', 'Error', {
         timeOut: this.toasTime
       });
     }
@@ -190,9 +235,9 @@ export class AddAdherentComponent implements OnInit {
   get nomFamille() {
     return this.profileForm.get('nomFamille');
   }
-  get telephone() {
+  /* get telephone() {
     return this.profileForm.get('telephone');
-  }
+  } */
   get matricule() {
     return this.profileForm.get('matricule');
   }
