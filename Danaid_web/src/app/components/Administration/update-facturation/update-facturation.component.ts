@@ -4,6 +4,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AdherentService } from 'src/app/services/adherent/adherent.service';
 import { FacturationNotId } from 'src/app/entities/facturationNotId/facturation-not-id.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-update-facturation',
@@ -12,7 +13,7 @@ import { FacturationNotId } from 'src/app/entities/facturationNotId/facturation-
 })
 export class UpdateFacturationComponent implements OnInit {
 
-  facturation: Facturation;
+  facturation: Facturation = new Facturation();
   id: string = "";
 
   etatValidOptions = [
@@ -26,7 +27,11 @@ export class UpdateFacturationComponent implements OnInit {
 
   infosForm: FormGroup
 
-  constructor(private route: ActivatedRoute, private adherentService: AdherentService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private toastr: ToastrService,
+    private adherentService: AdherentService
+  ) { }
 
   ngOnInit() {
     //this.initForm();
@@ -41,7 +46,6 @@ export class UpdateFacturationComponent implements OnInit {
       this.adherentService.getFacturationById(this.id).subscribe(data => {
         const fact = data.data() as Facturation;
         fact.id = this.id;
-        console.log(fact);
         this.updateUI(fact);
       });
     });
@@ -52,13 +56,20 @@ export class UpdateFacturationComponent implements OnInit {
     this.initForm();
   }
 
+  getDateValid(data: any): any {
+    if (data !== null) {
+      return new Date((data.seconds) * 1000);
+    }
+    return '';
+  }
+
   initForm() {
     try {
       this.infosForm = new FormGroup({
         categoriePaiement: new FormControl(this.facturation.categoriePaiement),
-        dateDebutCouvertureAdherent: new FormControl(this.facturation.dateDebutCouvertureAdherent),
-        dateFinCouvertureAdherent: new FormControl(this.facturation.dateFinCouvertureAdherent),
-        dateReglementDuPaiement: new FormControl(this.facturation.dateReglementDuPaiement),
+        dateDebutCouvertureAdherent: new FormControl(this.getDateValid(this.facturation.dateDebutCouvertureAdherent)),
+        dateFinCouvertureAdherent: new FormControl(this.getDateValid(this.facturation.dateFinCouvertureAdherent)),
+        dateReglementDuPaiement: new FormControl(this.getDateValid(this.facturation.dateReglementDuPaiement)),
         etatValider: new FormControl(this.facturation.etatValider),
         intitule: new FormControl(this.facturation.intitule),
         montant: new FormControl(this.facturation.montant),
@@ -71,6 +82,44 @@ export class UpdateFacturationComponent implements OnInit {
     } catch (error) {
 
     }
+  }
+
+
+  get statut() {
+    return this.infosForm.get('statut');
+  }
+  get paiementEffactuerViaInscription() {
+    return this.infosForm.get('paiementEffactuerViaInscription');
+  }
+  get numeroRecu() {
+    return this.infosForm.get('numeroRecu');
+  }
+  get niveauCotisation() {
+    return this.infosForm.get('niveauCotisation');
+  }
+  get nbPersonneSupplement() {
+    return this.infosForm.get('nbPersonneSupplement');
+  }
+  get montant() {
+    return this.infosForm.get('montant');
+  }
+  get intitule() {
+    return this.infosForm.get('intitule');
+  }
+  get etatValider() {
+    return this.infosForm.get('etatValider');
+  }
+  get dateReglementDuPaiement() {
+    return this.infosForm.get('dateReglementDuPaiement');
+  }
+  get dateFinCouvertureAdherent() {
+    return this.infosForm.get('dateFinCouvertureAdherent');
+  }
+  get dateDebutCouvertureAdherent() {
+    return this.infosForm.get('dateDebutCouvertureAdherent');
+  }
+  get categoriePaiement() {
+    return this.infosForm.get('categoriePaiement');
   }
 
   // modification d'un adherent
@@ -88,46 +137,55 @@ export class UpdateFacturationComponent implements OnInit {
     }
   }
 
-  saveModification() {
-    const fact = new Facturation();
-    fact.etatValider = this.formatBoolean('' + this.infosForm.value.etatValider);
-    fact.intitule = this.infosForm.value.intitule;
-    fact.montant = this.infosForm.value.montant;
-    fact.nbPersonneSupplement = this.infosForm.value.nbPersonneSupplement;
-    fact.niveauCotisation = this.infosForm.value.niveauCotisation;
-    fact.numeroRecu = this.infosForm.value.numeroRecu;
-    fact.paiementEffactuerViaInscription = this.formatBoolean('' + this.infosForm.value.paiementEffactuerViaInscription);
-    fact.statut = this.infosForm.value.statut;
+  getBoolean(data: any): boolean {
+    if (('' + data) === 'true') {
+      return true
+    }
+    return false
+  }
 
-    fact.categoriePaiement = this.facturation.categoriePaiement;
-    fact.dateDebutCouvertureAdherent = this.facturation.dateDebutCouvertureAdherent;
-    fact.dateFinCouvertureAdherent = this.facturation.dateFinCouvertureAdherent;
-    fact.dateReglementDuPaiement = this.facturation.dateReglementDuPaiement;
-    fact.idAdherent = this.facturation.idAdherent;
-    fact.id = this.id;
+  convertDate(dateDate: any): Date {
+    if (dateDate._d !== undefined) {
+      return dateDate._d
+    }
+    return dateDate
+  }
+
+  saveModification() {
+    const fact = this.facturation;
+
+    //date properties
+    fact.dateDebutCouvertureAdherent = this.convertDate(this.infosForm.get('dateDebutCouvertureAdherent').value)
+    fact.dateFinCouvertureAdherent = this.convertDate(this.infosForm.get('dateFinCouvertureAdherent').value)
+    fact.dateReglementDuPaiement = this.convertDate(this.infosForm.get('dateReglementDuPaiement').value)
+
+    //boolean properties
+    fact.etatValider = this.getBoolean(this.infosForm.get('etatValider').value)
+    fact.paiementEffactuerViaInscription = this.getBoolean(this.infosForm.get('paiementEffactuerViaInscription').value)
+
+
+    fact.intitule = this.infosForm.get('intitule').value;
+    fact.montant = this.infosForm.get('montant').value;
+    fact.nbPersonneSupplement = this.infosForm.get('nbPersonneSupplement').value;
+    fact.niveauCotisation = this.infosForm.get('niveauCotisation').value;
+    fact.numeroRecu = this.infosForm.get('numeroRecu').value;
+    fact.statut = this.infosForm.get('statut').value;
+    fact.categoriePaiement = this.infosForm.get('categoriePaiement').value;
+
     this.updateFacturation(fact)
   }
 
-  updateFacturation(factcustom: Facturation) {
-    const fact = new FacturationNotId();
-    fact.etatValider = factcustom.etatValider;
-    fact.intitule = factcustom.intitule;
-    fact.montant = factcustom.montant;
-    fact.nbPersonneSupplement = factcustom.nbPersonneSupplement;
-    fact.niveauCotisation = factcustom.niveauCotisation;
-    fact.numeroRecu = factcustom.numeroRecu;
-    fact.paiementEffactuerViaInscription = factcustom.paiementEffactuerViaInscription;
-    fact.statut = factcustom.statut;
-    fact.categoriePaiement = factcustom.categoriePaiement;
-    fact.dateDebutCouvertureAdherent = factcustom.dateDebutCouvertureAdherent;
-    fact.dateFinCouvertureAdherent = factcustom.dateFinCouvertureAdherent;
-    fact.dateReglementDuPaiement = factcustom.dateReglementDuPaiement;
-    fact.idAdherent = factcustom.idAdherent;
-
-    this.adherentService.updateFacturation(fact, this.id).then(success => {
-      this.facturation = factcustom;
-      console.log(fact);
-    });
+  updateFacturation(fact: Facturation) {
+    this.adherentService.updateFacturation(fact)
+      .then(success => {
+        this.toastr.success('Modification effectuée avec succes', 'Success', {
+          timeOut: 2000
+        });
+      }).catch(error => {
+        this.toastr.error('Erreur de modification', 'Error', {
+          timeOut: 2000
+        });
+      });
   }
 
   formatBoolean(value: string): boolean {

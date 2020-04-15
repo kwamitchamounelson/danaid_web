@@ -1,7 +1,6 @@
 import { Adherent } from 'src/app/entities/adherent.model';
 import { Medecin } from 'src/app/entities/medecin/medecin.model';
 import { Facturation } from 'src/app/entities/facturation/facturation.model';
-import { FacturationNotId } from 'src/app/entities/facturationNotId/facturation-not-id.model';
 
 export interface AdherentInterface {
   getAllAdherent();
@@ -18,6 +17,6 @@ export interface AdherentInterface {
   getAllMedecins();
   getMedecinByPhoneNumber(medecinPhoneNumber: string);
   updateMedecin(medecin: Medecin);
-  updateFacturation(facturation: FacturationNotId, id: string);
+  updateFacturation(facturation: Facturation);
   getFacturationById(facturationId: string);
 }

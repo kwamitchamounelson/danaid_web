@@ -62,8 +62,8 @@ export class AdherentService implements AdherentInterface {
     return this.adherentDao.updateMedecinDocument(medecin);
   }
 
-  updateFacturation(facturation: FacturationNotId, id: string) {
-    return this.adherentDao.updateFacturationDocument(facturation, id);
+  updateFacturation(facturation: Facturation) {
+    return this.adherentDao.updateFacturationDocument(facturation);
   }
 
   deleteAdherent(adherentPhoneNumber: string) {

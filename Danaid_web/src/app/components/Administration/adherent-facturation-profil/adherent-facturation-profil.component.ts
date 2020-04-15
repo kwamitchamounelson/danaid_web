@@ -11,7 +11,7 @@ import { AdherentService } from 'src/app/services/adherent/adherent.service';
 export class AdherentFacturationProfilComponent implements OnInit {
 
   @Input("phone") phone: string = "";
-  adherent: Adherent;
+  adherent: Adherent = new Adherent();
   defaulImage = 'https://firebasestorage.googleapis.com/v0/b/danaidapp.appspot.com/o/user-profil.png?alt=media&token=10fc4c1d-7f22-48b8-897d-e5a973721628';
 
 

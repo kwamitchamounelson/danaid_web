@@ -23,17 +23,28 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <p class="label-input">Categorie (COTISATION_TRIMESTRIELLE,
+                                                <!-- <p class="label-input">Categorie (COTISATION_TRIMESTRIELLE,
                                                     REMBOURSEMENT_DES_PREts_SANTE)</p>
                                                 <input type="text" class="form-control"
-                                                    value="{{facturation.categoriePaiement}}">
+                                                    value="{{facturation.categoriePaiement}}"> -->
+
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Categorie</mat-label>
+                                                    <input matInput placeholder="Categorie"
+                                                        [formControl]="categoriePaiement">
+                                                </mat-form-field>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <p class="label-input">Date de debut de couverture</p>
-                                                <input type="date" class="form-control"
-                                                    formControlName="dateDebutCouvertureAdherent">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Date de debut de couverture</mat-label>
+                                                    <input matInput [matDatepicker]="picker1"
+                                                        [formControl]="dateDebutCouvertureAdherent">
+                                                    <mat-datepicker-toggle matSuffix [for]="picker1">
+                                                    </mat-datepicker-toggle>
+                                                    <mat-datepicker #picker1></mat-datepicker>
+                                                </mat-form-field>
                                             </div>
                                         </div>
                                     </div>
@@ -41,31 +52,26 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <p class="label-input">Date de fin de couverture</p>
-                                                <input type="date" class="form-control"
-                                                    formControlName="dateFinCouvertureAdherent">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Date de fin de couverture</mat-label>
+                                                    <input matInput [matDatepicker]="picker2"
+                                                        [formControl]="dateFinCouvertureAdherent">
+                                                    <mat-datepicker-toggle matSuffix [for]="picker2">
+                                                    </mat-datepicker-toggle>
+                                                    <mat-datepicker #picker2></mat-datepicker>
+                                                </mat-form-field>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <p class="label-input">Date de reglement</p>
-                                                <input type="date" class="form-control"
-                                                    formControlName="dateReglementDuPaiement">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <p class="label-input">Etat de validite (true, false)</p>
-                                                <input type="text" class="form-control" formControlName="etatValider">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <p class="label-input">Intitule</p>
-                                                <input type="text" class="form-control" formControlName="intitule">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Date de reglement</mat-label>
+                                                    <input matInput [matDatepicker]="picker3"
+                                                        [formControl]="dateReglementDuPaiement">
+                                                    <mat-datepicker-toggle matSuffix [for]="picker3">
+                                                    </mat-datepicker-toggle>
+                                                    <mat-datepicker #picker3></mat-datepicker>
+                                                </mat-form-field>
                                             </div>
                                         </div>
                                     </div>
@@ -73,31 +79,19 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <p class="label-input">Montant</p>
-                                                <input type="number" class="form-control" formControlName="montant">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Etat de validite (true, false)</mat-label>
+                                                    <input matInput placeholder="Etat de validite"
+                                                        [formControl]="etatValider">
+                                                </mat-form-field>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <p class="label-input">Nomber de personnes supplementaires</p>
-                                                <input type="number" class="form-control"
-                                                    formControlName="nbPersonneSupplement">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <p class="label-input">Niveau de cotisation</p>
-                                                <input type="text" class="form-control"
-                                                    formControlName="niveauCotisation">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <p class="label-input">Numero du recu</p>
-                                                <input type="text" class="form-control" formControlName="numeroRecu">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Intitulé</mat-label>
+                                                    <input matInput placeholder="Intitulé" [formControl]="intitule">
+                                                </mat-form-field>
                                             </div>
                                         </div>
                                     </div>
@@ -105,15 +99,63 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <p class="label-input">Paiement a l'inscription? (true, false)</p>
-                                                <input type="text" class="form-control"
-                                                    formControlName="paiementEffactuerViaInscription">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Montant</mat-label>
+                                                    <input type="number" matInput placeholder="Montant"
+                                                        [formControl]="montant">
+                                                </mat-form-field>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <p class="label-input">Status (STATUTENRETARD, STATUTPAYER)</p>
-                                                <input type="text" class="form-control" formControlName="statut">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Nomber de personnes supplementaires</mat-label>
+                                                    <input type="number" matInput
+                                                        placeholder="Nomber de personnes supplementaires"
+                                                        [formControl]="nbPersonneSupplement">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Niveau de cotisation</mat-label>
+                                                    <input matInput placeholder="Niveau de cotisation"
+                                                        [formControl]="niveauCotisation">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Numero du recu</mat-label>
+                                                    <input matInput placeholder="Numero du recu"
+                                                        [formControl]="numeroRecu">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Paiement a l'inscription? (true/false)</mat-label>
+                                                    <input matInput placeholder="Paiement a l'inscription? (true/false)"
+                                                        [formControl]="paiementEffactuerViaInscription">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Status (STATUTENRETARD, STATUTPAYER)</mat-label>
+                                                    <input matInput placeholder="Status (STATUTENRETARD, STATUTPAYER)"
+                                                        [formControl]="statut">
+                                                </mat-form-field>
                                             </div>
                                         </div>
                                     </div>

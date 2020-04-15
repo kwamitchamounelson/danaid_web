@@ -50,6 +50,13 @@ export class DetailAdherentComponent implements OnInit {
     });
   }
 
+  getDateValid(data: any): any {
+    if (data !== null) {
+      return new Date((data.seconds) * 1000);
+    }
+    return '';
+  }
+
   updateUI(option: string) {
     this.option = option;
     if (this.option === this.profileOption) {
@@ -66,9 +73,9 @@ export class DetailAdherentComponent implements OnInit {
         profil: new FormControl(this.adherent.profil),
         statuMatrimonialMarie: new FormControl(this.adherent.statuMatrimonialMarie),
         protectionLevel: new FormControl(this.adherent.protectionLevel),
-        createdDate: new FormControl(new Date((this.adherent.createdDate.seconds) * 1000)),
-        dateNaissance: new FormControl(new Date((this.adherent.dateNaissance.seconds) * 1000)),
-        datFinvalidite: new FormControl(new Date((this.adherent.datFinvalidite.seconds) * 1000))
+        createdDate: new FormControl(this.getDateValid(this.adherent.createdDate)),
+        dateNaissance: new FormControl(this.getDateValid(this.adherent.dateNaissance)),
+        datFinvalidite: new FormControl(this.getDateValid(this.adherent.datFinvalidite))
       });
     }
   }
@@ -179,20 +186,17 @@ export class DetailAdherentComponent implements OnInit {
   // modification d'un adherent
   updateAdherent(adherent: Adherent) {
     this.adherentService.updateAdherent(adherent)
-      .then(function () {
-        /* this.toastr.success('Modification effectuée avec succes', 'Success', {
+      .then(success => {
+        this.toastr.success('Modification effectuée avec succes', 'Success', {
           timeOut: this.toasTime
-        }); */
+        });
+        this.router.navigate(['/dashboad', 3]);
       })
-      .catch(function (error) {
-        /* this.toastr.error('Erreur de modification', 'Error', {
+      .catch(success => {
+        this.toastr.error('Erreur de modification', 'Error', {
           timeOut: this.toasTime
-        }); */
+        });
       });
-    this.toastr.success('Modification effectuée avec succes', 'Success', {
-      timeOut: this.toasTime
-    });
-    this.router.navigate(['/dashboad', 3]);
   }
 
 

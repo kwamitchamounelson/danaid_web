@@ -49,8 +49,8 @@ export class AdherentDAO {
     return this.firestoreService.updateEntityDocument(Constant.MEDECINS, medecin, '' + phoneNumber);
   }
 
-  updateFacturationDocument(facturation: FacturationNotId, id: string) {
-    return this.firestoreService.updateEntityDocumentMethodeSet(Constant.FACTURATIONS_ADHERENT, facturation, '' + id);
+  updateFacturationDocument(facturation: Facturation) {
+    return this.firestoreService.updateEntityDocumentMethodeSet(Constant.FACTURATIONS_ADHERENT, facturation, '' + facturation.id);
   }
 
   deleteMedecinDocument(medecinPhoneNumber: string) {

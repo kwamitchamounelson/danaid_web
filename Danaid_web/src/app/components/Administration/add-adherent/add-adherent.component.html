@@ -20,7 +20,7 @@
                                                     {{phone.number}}
                                                     <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
                                                 </mat-chip>
-                                                <input class="form-control" [matChipInputFor]="chipList"
+                                                <input [matChipInputFor]="chipList"
                                                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                                                     [matChipInputAddOnBlur]="addOnBlur"
                                                     (matChipInputTokenEnd)="add($event)">
@@ -32,8 +32,10 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <p class="label-input">Matricule (genéré si ce champ est vide)</p>
-                                                <input type="text" class="form-control" [formControl]="matricule">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Matricule (genéré si ce champ est vide)</mat-label>
+                                                    <input matInput placeholder="Matricule" [formControl]="matricule">
+                                                </mat-form-field>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -46,29 +48,19 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <p class="label-input">Nom de famille</p>
-                                                <input type="text" class="form-control" [formControl]="nomFamille">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Nom de famille</mat-label>
+                                                    <input matInput placeholder="Nom de famille"
+                                                        [formControl]="nomFamille">
+                                                </mat-form-field>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <p class="label-input">Prenom</p>
-                                                <input type="text" class="form-control" [formControl]="prenom">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <p class="label-input">Adresse</p>
-                                                <input type="text" class="form-control" [formControl]="adresse">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <p class="label-input">Adresse email</p>
-                                                <input type="text" class="form-control" [formControl]="emailAdress">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Prenom</mat-label>
+                                                    <input matInput placeholder="Prenom" [formControl]="prenom">
+                                                </mat-form-field>
                                             </div>
                                         </div>
                                     </div>
@@ -76,30 +68,19 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <p class="label-input">Sexe (M/F)</p>
-                                                <input type="text" class="form-control" [formControl]="genre">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Adresse</mat-label>
+                                                    <input matInput placeholder="Adresse" [formControl]="adresse">
+                                                </mat-form-field>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <p class="label-input">Nombre d'enfants</p>
-                                                <input type="number" class="form-control" [formControl]="nombreEnfant">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <p class="label-input">Niveau de protection</p>
-                                                <input type="number" class="form-control"
-                                                    [formControl]="protectionLevel">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <p class="label-input">Region d'origine</p>
-                                                <input type="text" class="form-control" [formControl]="regionDorigione">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Adresse email</mat-label>
+                                                    <input matInput placeholder="Adresse email"
+                                                        [formControl]="emailAdress">
+                                                </mat-form-field>
                                             </div>
                                         </div>
                                     </div>
@@ -107,30 +88,19 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <p class="label-input">Profession</p>
-                                                <input type="text" class="form-control" [formControl]="profession">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Sexe (M/F)</mat-label>
+                                                    <input matInput placeholder="Sexe (M/F)" [formControl]="genre">
+                                                </mat-form-field>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <p class="label-input">Profile</p>
-                                                <input type="text" class="form-control" [formControl]="profil">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <p class="label-input">Marié? (true/false)</p>
-                                                <input type="text" class="form-control"
-                                                    [formControl]="statuMatrimonialMarie">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <p class="label-input">ville</p>
-                                                <input type="text" class="form-control" [formControl]="ville">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Nombre d'enfants</mat-label>
+                                                    <input type="number" matInput placeholder="Nombre d'enfants"
+                                                        [formControl]="nombreEnfant">
+                                                </mat-form-field>
                                             </div>
                                         </div>
                                     </div>
@@ -138,7 +108,67 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <mat-form-field>
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Niveau de protection</mat-label>
+                                                    <input type="number" matInput placeholder="Niveau de protection"
+                                                        [formControl]="protectionLevel">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Region d'origine</mat-label>
+                                                    <input matInput placeholder="Region d'origine"
+                                                        [formControl]="regionDorigione">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Profession</mat-label>
+                                                    <input matInput placeholder="Profession" [formControl]="profession">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Profile</mat-label>
+                                                    <input matInput placeholder="Profile" [formControl]="profil">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Marié? (true/false)</mat-label>
+                                                    <input matInput placeholder="Marié? (true/false)"
+                                                        [formControl]="statuMatrimonialMarie">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline" class="field-form">
+                                                    <mat-label>Ville</mat-label>
+                                                    <input matInput placeholder="Ville" [formControl]="ville">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
                                                     <mat-label>Date de naissance</mat-label>
                                                     <input matInput [matDatepicker]="picker1"
                                                         [formControl]="dateNaissance">
@@ -150,7 +180,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <mat-form-field>
+                                                <mat-form-field appearance="outline">
                                                     <mat-label>Date d'enregistrement</mat-label>
                                                     <input matInput [matDatepicker]="picker2"
                                                         [formControl]="createdDate">
@@ -165,7 +195,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <mat-form-field>
+                                                <mat-form-field appearance="outline">
                                                     <mat-label>Date de fin de validité</mat-label>
                                                     <input matInput [matDatepicker]="picker3"
                                                         [formControl]="datFinvalidite">
