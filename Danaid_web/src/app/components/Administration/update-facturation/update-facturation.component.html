@@ -1,7 +1,7 @@
 <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="adherent.imageUrl">
         <div class="logo">
-            <a href="JavaScript:Void(0)" class="simple-text logo-normal" [routerLink]="['/dashboad']">
+            <a href="JavaScript:Void(0)" class="simple-text logo-normal" [routerLink]="['/dashboad',0]">
                 <i class="material-icons">keyboard_backspace</i>
             </a>
         </div>
@@ -23,11 +23,8 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <!-- <p class="label-input">Categorie (COTISATION_TRIMESTRIELLE,
+                                                <p class="label-input">Categorie (COTISATION_TRIMESTRIELLE,
                                                     REMBOURSEMENT_DES_PREts_SANTE)</p>
-                                                <input type="text" class="form-control"
-                                                    value="{{facturation.categoriePaiement}}"> -->
-
                                                 <mat-form-field appearance="outline" class="field-form">
                                                     <mat-label>Categorie</mat-label>
                                                     <input matInput placeholder="Categorie"

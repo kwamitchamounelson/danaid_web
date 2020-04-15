@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class MainComponent implements OnInit {
 
   titleMenu = 'Danaid';
-  num: number;
+  num: number = 0;
   constructor(
     private firebase: FirebaseApp,
     private router: Router,
