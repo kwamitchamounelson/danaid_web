@@ -65,8 +65,14 @@ export class AdherentDAO {
     return this.firestoreService.getEntitiesDocumentsByFilter(Constant.BENEFICIAIRES, 'adherentId', AdherentId);
   }
 
-  getFacturationsDocumentForAdherent(AdherentId: string) {
+  /* getFacturationsDocumentForAdherent(AdherentId: string) {
     return this.firestoreService.getEntitiesDocumentsByFilter(Constant.FACTURATIONS_ADHERENT, 'idAdherent', AdherentId);
+  } */
+
+  getFacturationsDocumentForAdherent(AdherentId: string) {
+    return this.firestoreService.getEntitiesDocuments(
+      Constant.ADHERENTS + '/' + AdherentId + '/' + Constant.FACTURATIONS_ADHERENT
+    );
   }
 
   getMedecinDocumentByPhoneNumber(phoneNumber: string) {
