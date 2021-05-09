@@ -76,6 +76,7 @@ import { AdherentFacturationProfilComponent } from './components/Administration/
 import { WelcomComponent } from './components/Administration/welcom/welcom.component';
 import { ToastrModule } from 'ngx-toastr';
 import { AddAdherentComponent } from './components/Administration/add-adherent/add-adherent.component';
+import { environment } from 'src/environments/environment';
 
 // 2. Add your credentials from step 1
 const config = {
@@ -131,7 +132,7 @@ const config = {
     ToastrModule.forRoot(),
 
     // Initialize firebase
-    AngularFireModule.initializeApp(config),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // firestore
     // AngularFirestoreCollection, // firestoreCollection
     AngularFireAuthModule, // auth
