@@ -5,14 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyCDuAOSaTTSA7qbfn1MqpVHr9GoFsci1Ts",
-    authDomain: "danaidapp.firebaseapp.com",
-    databaseURL: "https://danaidapp.firebaseio.com",
-    projectId: "danaidapp",
-    storageBucket: "danaidapp.appspot.com",
-    messagingSenderId: "907608334806",
-    appId: "1:907608334806:web:610b57adff9c83bc458477",
-    measurementId: "G-T04Y43W4LV"
+    apiKey: "AIzaSyDt8TN3gcaeRw1MRLY8AI1sYuuUxtQKzJw",
+    authDomain: "danaid-dev.firebaseapp.com",
+    projectId: "danaid-dev",
+    storageBucket: "danaid-dev.appspot.com",
+    messagingSenderId: "926920992923",
+    appId: "1:926920992923:web:bf1cca2043d6648c15fe3e",
+    measurementId: "G-4QPFQLZHFW"
   }
 };
 
